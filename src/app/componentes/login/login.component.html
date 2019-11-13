@@ -1,0 +1,76 @@
+<div class="top-content" style="height: 100%;z-index: 5;background-image: url('../../../assets/img/2.jpg');       
+        background-repeat: no-repeat;background-size: 100% 100%;z-index: -1;height: 100%;">
+
+    <div class="my-container">
+        <ng-template #customLoadingTemplate>
+        </ng-template>
+
+        <ngx-loading [show]="loading" [config]="{ fullScreenBackdrop: 'true',
+            backdropBackgroundColour: 'rgba(121,98,98,0.3)', backdropBorderRadius: '10px',
+            primaryColour: '#ed1c24', secondaryColour: '#888 ', tertiaryColour: '#ed1c24' }"
+            [template]="customLoadingTemplate"></ngx-loading>
+        Cargando..
+    </div>
+
+
+    <div class="inner-bg">
+        <img src="../../../assets/img/logo3.png" style="width: 250px;margin-bottom: 25px;" />
+
+        <div class="ui-g-10 ui-md-5 ui-lg-3" style="background: rgba(0, 0, 0, 0.29); 
+                padding: 20px;border-style: solid;text-align: center;
+            float: none;border-width: 1px 1px 1px 1px;border-color: #888;">
+            <!--div class="form-top">
+                            <div class="form-top-left">
+                                <h3 style="font-weight: bold;color: black;">ACCESO</h3>
+                                <p style="font-weight: 400;color: black;">Ingrese su usuario y contraseña para ingresar:</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                        </div-->
+            <div>
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12 ui-md-12">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon"><i class="pi pi-user" style="color: #e91224;"></i></span>
+                            <input type="text" [(ngModel)]="usuario" pInputText placeholder="Usuario">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12 ui-md-12">
+                        <div class="ui-inputgroup">
+                            <span class="ui-inputgroup-addon"><i class="pi pi-lock" style="color: #e91224;"></i></span>
+                            <input type="password" [(ngModel)]="clave" pInputText placeholder="Clave">
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 8px;">
+                    <a style="cursor: pointer;font-size: 13px; float: right;color: #de615e;margin-bottom: 7px;">Olvidé
+                        mi contraseña</a>
+
+                    <button pButton type="button" style="width: 100%;font-size: 15px;" label="Ingresar"
+                        class="ui-button-raised ui-button-danger" (click)="loginButton()"></button>
+
+                </div>
+                <!--ng-template #customLoadingTemplate>
+                        <div class="custom-class">
+                            <h3>
+                                Loading...
+                            </h3>
+                            <button (click)="showAlert()">
+                                Click me!
+                            </button>
+                        </div>
+                    </ng-template-->
+
+                <span id="pieLogin" class="pieLogin" style="margin-top: 10px;font-size: 10px;color: #888;">
+                    © Copyright {{ today | date: 'yyyy' }} Sudamericana de Software S.A.</span>
+            </div>
+        </div>
+    </div>
+
+</div>

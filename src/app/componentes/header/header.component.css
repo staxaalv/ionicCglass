@@ -1,0 +1,30 @@
+#navbar {
+    height: 100%;
+}
+.user-info {
+    max-width: 60px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    vertical-align: top;
+    line-height: 15px;
+    position: relative;
+    top: 2px;
+    color: #FFF;
+    font-family: 'Open Sans';
+    font-size: 12px;
+}
+
+.ui-dialog .ui-dialog-content{
+    padding: 0px;
+}
+
+.sasf-block {
+    width: 100%; 
+}
+
+#user:hover{
+    border: 1px solid #005b9f;
+    background-color: #005b9f;
+}

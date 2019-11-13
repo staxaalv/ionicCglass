@@ -1,0 +1,18 @@
+:host >>> .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active{
+    background-color: #ed1c24;
+    border: 1px solid #f4f4f4;
+    font-size: 11px;
+}
+
+:host >>> .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem{
+    font-size: 11px;
+}
+
+:host >>> .ui-inputgroup .ui-inputgroup-addon{
+    padding: 4px;
+}
+
+:host >>> .pi {
+    font-size: 1.15em;
+}
+

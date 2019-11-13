@@ -1,0 +1,24 @@
+#container{
+    /*width: 75%;*/
+    margin-top: 20px;
+}
+
+:host >>> .ui-button{
+    background-color: #2c6aa0;
+    border: 1px solid #2c6aa0;
+}
+
+:host >>> .ui-button:enabled:hover{
+    border: 1px solid #005b9f;
+    background-color: #005b9f;
+}
+
+:host >>> .ui-button.ui-state-default.ui-button-secondary, body .ui-buttonset.ui-button-secondary > .ui-button.ui-state-default{
+    background-color: #c8c8c8;
+    border: 1px solid #c8c8c8;
+}
+
+:host >>> .ui-button.ui-state-default.ui-button-secondary:enabled:hover, body .ui-buttonset.ui-button-secondary > .ui-button.ui-state-default:enabled:hover{
+    background-color: #a7a7a7;
+    border: 1px solid #a7a7a7;
+}

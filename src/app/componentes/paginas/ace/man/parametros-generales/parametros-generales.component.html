@@ -1,0 +1,12 @@
+<app-jerarquia></app-jerarquia>
+
+<app-cabecera-codigo-descripcion></app-cabecera-codigo-descripcion>
+
+<app-detalle [data]="parametrosGenerales" 
+             [cols]="cols" 
+             [name]="titulo" 
+             [loading]="loading" 
+             [errorGuardar]="errorGuardar"
+             (agregarFila)="agregarFila()"
+             (guardarFilas)="updateParametrosGenerales()"></app-detalle>
+

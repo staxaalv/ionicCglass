@@ -1,0 +1,130 @@
+#container{
+    /*width: 75%;*/
+    margin: 20px;
+}
+
+.botones {
+    float: right;font-size: 13px;color: white;margin-left: 2px;margin-right: 2px;
+}
+
+:host >>> .ui-table .ui-table-thead > tr > th{
+    background-color: #2c6aa0;
+    color: white;
+    overflow: inherit;
+}
+
+:host >>> .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active{
+    background-color: #2c6aa0;
+}
+:host >>> .ui-table .ui-table-tbody > tr.ui-state-highlight{
+    background-color: #eaeaea;
+    color: #333333;
+    font-weight: bold;
+}
+:host >>> .ui-table .ui-table-tbody > tr:nth-child(even).ui-state-highlight{
+    background-color: #eaeaea;
+    color: #333333;
+    font-weight: bold;
+}
+
+:host >>> .ui-chkbox .ui-chkbox-box.ui-state-active{
+    border-color: #2c6aa0;
+    background-color: #2c6aa0;
+    color: #ffffff;
+}
+
+:host >>> .ui-table table{
+    font-size: 12px;
+}
+
+:host >>> .ui-paginator{
+    font-size: 12px;
+}
+
+:host >>> .ui-table .ui-table-tbody > tr > td{
+    /*overflow: hidden;*/
+}
+
+:host >>> .ui-button {
+    background-color: #2c6aa0;
+    border: 1px solid #2c6aa0;
+}
+
+:host >>> .ui-button:enabled:hover{
+    background-color: #005b9f;
+    border: #005b9f;
+}
+
+:host >>> .ui-table .ui-table-caption{
+    min-height: 44px;
+}
+
+:host >>> .ui-paginator .ui-dropdown{
+    height: 100%;
+}
+
+:host >>> .ui-paginator .ui-dropdown .ui-dropdown-trigger{
+    color: #ffffff;
+    background: #2c6aa0;
+    height: 95%;
+    margin-top: 1.5px;
+}
+:host >>> .ui-paginator .ui-dropdown .ui-dropdown-label{
+    color: #ffffff;
+    background: #2c6aa0;
+    height: 100%;
+    margin-top: 1.5px;
+    min-width: 55px;
+}
+
+:host >>> .ui-table-loading-content{
+    font-size: 40px;
+}
+
+:host >>>  .ui-table .ui-sortable-column .ui-sortable-column-icon{
+    color: white;
+}
+
+:host >>> .ui-table .ui-table-tbody > tr:nth-child(even){
+    background-color: #ececec;
+}
+
+:host >>> .ui-widget{
+    font-size: 13px;
+}
+
+:host >>> .ui-paginator .ui-dropdown:hover .ui-dropdown-trigger, body .ui-paginator .ui-dropdown:hover .ui-dropdown-label{
+    color: white;
+}
+
+:host >>> .ui-paginator .ui-dropdown:hover .ui-dropdown-trigger{
+    color: white;
+}
+
+:host >>> .ui-paginator .ui-dropdown:hover .ui-dropdown-label{
+    color: white;
+}
+
+.celda-error{
+    /*background-color: #eaeaea;*/
+    color: #ed1c24 !important;
+    font-weight: bold;
+}
+.celda-exito{
+    /*background-color: #eaeaea;*/
+    color: #03bb13 !important;
+    font-weight: bold;
+}
+.celda-modificada{
+    /*background-color: #eaeaea;*/
+    color: #2c6aa0 !important;
+    font-weight: bold;
+}
+
+:host >>> .ui-table .ui-table-tbody > tr > td{
+    padding: 0.35em 0.4em;
+}
+
+:host >>> .ui-overlaypanel .ui-overlaypanel-close{
+    background-color: #2c6aa0;
+}

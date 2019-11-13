@@ -1,0 +1,21 @@
+:host >>> .ui-breadcrumb{
+    background-color: #f4f4f4;
+    border: none;
+    padding: 0px;
+}
+
+:host >>> .ui-breadcrumb .ui-menuitem-text{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+:host >>> .ui-breadcrumb ul li .ui-menuitem-link{
+    color: #2c6aa0;
+    font-size: 18px;
+    vertical-align: bottom;
+}
+
+:host >>> .ui-breadcrumb ul li.ui-breadcrumb-chevron{
+    color: #2c6aa0;
+    font-size: 1em;
+}

@@ -1,0 +1,46 @@
+.inner-bg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.social-login{
+    margin-top: 0px;
+}
+button.btn{
+    background: #ed1c24;
+    font-weight: 500;
+}
+button.btn:focus{
+    background: #ed1c24;
+    font-weight: 500;
+}
+.form-top{
+    background: #9c9c9c;
+    border-radius: 10px;
+}
+.form-bottom{
+    background: rgba(0, 0, 0, 0.15);
+    padding-bottom: 25px;
+    /*border-radius: 10px;*/
+}
+.form-box{
+    margin-top: 15px;
+}
+button.btn{
+    height: 40px;
+    line-height: 0px;
+}
+.ui-messages-error, .ui-message-error{
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    text-align: left;
+    font-weight: bold;
+    line-height: 20px;
+}

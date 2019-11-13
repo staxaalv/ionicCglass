@@ -1,0 +1,45 @@
+<div id="navbar" #nav class="navbar navbar-default ace-save-state" [style.background]="general.navColor">
+
+  <!--div class="navbar-header pull-left"-->
+  <a href="/home" target="_self" class="navbar-brand">
+    <!--small-->
+    <!--i class="fa fa-leaf"></i-->
+    <img [src]="general.rutaLogo" width="185" height="65" style="float: left;padding: 5px;" />
+    <!--/small-->
+  </a>
+
+
+  <p-dialog #dlg [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '150px', minWidth: '70px'}"
+    [minY]="70" [positionTop]="70" [positionLeft]="nav.offsetWidth - 150" [maximizable]="true" [baseZIndex]="10000"
+    [dismissableMask]="true" [showHeader]="false" [contentStyle]="{'padding':'0px'}">
+    <button pButton icon="pi pi-user" class="sasf-block ui-button-secondary" label="Cambiar Contraseña"></button>
+    <button pButton icon="pi pi-sign-out" class="sasf-block ui-button-secondary" label="Cerrar Sesión"></button>
+  </p-dialog>
+  <div id="user" style="border-left: 1px solid #FFF;height: 100%;float: right;width: 150px;">
+
+    <a (click)="showDialog()">
+      <img [src]="general.rutaFoto" width="175" height="55" style="border-radius: 50%;    border: 2px solid #FFF;
+        width: auto;
+        max-width: 45px;
+    margin: 12px 8px 0 0;
+    max-height: 45px;    cursor: pointer;" />
+      <span class="user-info" style="cursor: pointer;"><small><br />Bienvenido</small>
+        {{general.user}}
+      </span>
+      <i class="pi pi-angle-down" style="vertical-align: top;
+        line-height: 15px;
+        position: relative;
+        top: 30px;
+        color: #FFF;    cursor: pointer;"></i>
+    </a>
+
+  </div>
+
+
+  <!--/div-->
+
+  <!--div class="navbar-container ace-save-state" id="navbar-container">
+
+        
+    </div-->
+</div>

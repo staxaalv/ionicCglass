@@ -1,0 +1,21 @@
+
+:host >>> .ui-panelmenu .ui-panelmenu-header > a {
+    font-size: 11px;
+}
+
+:host >>> .ui-panelmenu .ui-panelmenu-header.ui-state-active > a{
+    border: 1px solid #2c6aa0;
+    background-color: #2c6aa0;
+}
+
+:host >>> .ui-panelmenu .ui-panelmenu-content .ui-menuitem .ui-menuitem-link{
+    font-weight: bold;
+}
+
+:host >>> .ui-panelmenu .ui-panelmenu-icon{
+    color: #ed1c24;
+}
+
+:host >>> .ui-panelmenu .ui-panelmenu-content .ui-menuitem .ui-menuitem-link:hover .ui-menuitem-text{
+    color: #ed1c24;
+}

@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+*.ui-inputtext {
+    font-size: 11px !important;
+}
+*.ui-inputtext:enabled:hover:not(.ui-state-error){
+    border-color: #ed1c24 !important;
+}
