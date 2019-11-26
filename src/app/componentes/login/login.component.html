@@ -30,11 +30,20 @@
                         </div-->
             <div>
 
+
+                <div class="ui-g ui-fluid">
+                    <div class="ui-g-12 ui-md-12">
+                        <p-messages [(value)]="msgs" [closable]="false" [showTransitionOptions]="'600ms'"
+                            [hideTransitionOptions]="'450ms'"></p-messages>
+                    </div>
+                </div>
                 <div class="ui-g ui-fluid">
                     <div class="ui-g-12 ui-md-12">
                         <div class="ui-inputgroup">
                             <span class="ui-inputgroup-addon"><i class="pi pi-user" style="color: #e91224;"></i></span>
-                            <input type="text" [(ngModel)]="usuario" pInputText placeholder="Usuario">
+                            <input type="text" autofocus [(ngModel)]="usuario" pInputText placeholder="Usuario"
+                            (keyup.enter)="(!usuario || !clave) ? return : loginButton()"
+                            (focus)="limpiarMensaje()">
                         </div>
                     </div>
                 </div>
@@ -43,7 +52,9 @@
                     <div class="ui-g-12 ui-md-12">
                         <div class="ui-inputgroup">
                             <span class="ui-inputgroup-addon"><i class="pi pi-lock" style="color: #e91224;"></i></span>
-                            <input type="password" [(ngModel)]="clave" pInputText placeholder="Clave">
+                            <input type="password" [(ngModel)]="clave" pInputText placeholder="Clave"
+                            (keyup.enter)="(!usuario || !clave) ? return : loginButton()"
+                            (focus)="limpiarMensaje()">
                         </div>
                     </div>
                 </div>
@@ -53,9 +64,12 @@
                         mi contraseña</a>
 
                     <button pButton type="button" style="width: 100%;font-size: 15px;" label="Ingresar"
-                        class="ui-button-raised ui-button-danger" (click)="loginButton()"></button>
+                        class="ui-button-raised ui-button-danger" (click)="loginButton()"
+                        [disabled]="!usuario || !clave"
+                        [title]="(!usuario || !clave) ? 'Ingrese usuario y clave' : ''"></button>
 
                 </div>
+
                 <!--ng-template #customLoadingTemplate>
                         <div class="custom-class">
                             <h3>

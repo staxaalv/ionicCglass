@@ -41,10 +41,6 @@
     font-size: 12px;
 }
 
-:host >>> .ui-table .ui-table-tbody > tr > td{
-    /*overflow: hidden;*/
-}
-
 :host >>> .ui-button {
     background-color: #2c6aa0;
     border: 1px solid #2c6aa0;
@@ -90,7 +86,7 @@
 }
 
 :host >>> .ui-widget{
-    font-size: 13px;
+    font-size: 12px;
 }
 
 :host >>> .ui-paginator .ui-dropdown:hover .ui-dropdown-trigger, body .ui-paginator .ui-dropdown:hover .ui-dropdown-label{
@@ -105,26 +101,109 @@
     color: white;
 }
 
-.celda-error{
+.celda-error {
     /*background-color: #eaeaea;*/
     color: #ed1c24 !important;
     font-weight: bold;
 }
-.celda-exito{
+.celda-exito {
     /*background-color: #eaeaea;*/
     color: #03bb13 !important;
     font-weight: bold;
 }
-.celda-modificada{
+.celda-modificada {
     /*background-color: #eaeaea;*/
     color: #2c6aa0 !important;
     font-weight: bold;
 }
-
+.celda-error .ui-inputtext{
+    /*background-color: #eaeaea;*/
+    color: #ed1c24 !important;
+    font-weight: bold;
+}
+.celda-exito .ui-inputtext{
+    /*background-color: #eaeaea;*/
+    color: #03bb13 !important;
+    font-weight: bold;
+}
+.celda-modificada .ui-inputtext{
+    /*background-color: #eaeaea;*/
+    color: #2c6aa0 !important;
+    font-weight: bold;
+}
+.celda-3em{
+    width: 3em;
+}
+.width100{
+    width : 100%;
+}
+.ordenar{
+    overflow: hidden;margin: 0px;
+}
+.icono-error{
+    font-size: 1.7em; 
+    color: red;
+}
+.numero-registros{
+    float: left;
+    color: #2c6aa0;
+    font-size: 11px;
+    margin-top: 5px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.titulo-detalle{
+    font-size: 15px;
+}
 :host >>> .ui-table .ui-table-tbody > tr > td{
     padding: 0.35em 0.4em;
 }
 
 :host >>> .ui-overlaypanel .ui-overlaypanel-close{
     background-color: #2c6aa0;
+}
+
+:host >>> .ui-table .ui-editable-column input{
+    text-transform: uppercase;
+}
+
+:host >>> .ui-inputtext {
+    text-transform: uppercase;
+    width: 100%;
+    background: transparent;
+}
+
+:host >>> .ui-dropdown{
+    min-width: auto;
+    border-color: transparent;
+    background: transparent;
+}
+
+:host >>> .ui-table .ui-table-thead > tr > th {
+    padding: 4.2px;
+}
+
+:host >>> .ui-inputtext{
+    border-color: transparent;
+}
+
+:host >>> .ui-dropdown:not(.ui-state-disabled):hover{
+    border-color: #ed1c24;
+}
+
+:host >>> .ui-chkbox .ui-chkbox-box:not(.ui-state-disabled):hover{
+    border-color: #ed1c24;
+}
+
+:host >>> .ui-dropdown .ui-dropdown-trigger{
+    background-color: transparent;
+}
+
+:host >>> .ui-table .ui-table-thead > tr > th > .ui-inputtext{
+    background: white;
+}
+
+:host >>> .ui-table .ui-table-thead > tr > th > p-dropdown > .ui-dropdown{
+    background: white;
+    width: 100%;
 }

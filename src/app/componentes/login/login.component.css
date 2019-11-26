@@ -37,10 +37,27 @@ button.btn{
     line-height: 0px;
 }
 .ui-messages-error, .ui-message-error{
-    background-color: transparent;
-    border: none;
+    /*background-color: transparent;
+    border: none;*/
     font-size: 12px;
     text-align: left;
     font-weight: bold;
     line-height: 20px;
 }
+:host >>> .ui-messages{
+    padding: 7px;
+    margin: 0px;
+    font-size: 13px;
+    text-align: left;
+}
+
+:host >>> .ui-messages.ui-messages-error{
+    background: #e91224;
+}
+
+:host >>> .ui-messages .ui-messages-icon{
+    font-size: 1.8em;
+}
+/*:host >>> .ui-messages.ui-messages-error .ui-messages-icon{
+    color: #fcfcfc;
+}*/

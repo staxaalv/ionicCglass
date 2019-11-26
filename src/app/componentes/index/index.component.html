@@ -1,58 +1,61 @@
-<app-jerarquia></app-jerarquia>
-<div class="ui-g ui-fluid">
 
-  <div class="ui-g-12 ui-md-6 ui-lg-4">
-    <p-card>
-      <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue" [centralLabel]="centralLabel"
-        [options]="options2" [name]="name" [bottomLabel]="bottomLabel"></rg-gauge-chart>
-      <p-footer style="color: red;">
-        <small>Métrica actualizada al <b>{{ now | date: 'shortDate' }}</b></small>
-      </p-footer>
-    </p-card>
-  </div>
-  <div class="ui-g-12 ui-md-6 ui-lg-2" *ngIf="show">
-    <p-card>
+<div *ngIf="show">
+  <app-jerarquia></app-jerarquia>
+  <div class="ui-g ui-fluid">
+
+    <div class="ui-g-12 ui-md-6 ui-lg-4">
+      <p-card>
+        <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue" [centralLabel]="centralLabel"
+          [options]="options2" [name]="name" [bottomLabel]="bottomLabel"></rg-gauge-chart>
+        <p-footer style="color: red;">
+          <small>Métrica actualizada al <b>{{ now | date: 'shortDate' }}</b></small>
+        </p-footer>
+      </p-card>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-2">
+      <p-card>
+        <br />
+        <p><b>Período Anterior</b></p>
+        <p class="resaltar">$85200</p>
+        <br />
+      </p-card>
       <br />
-      <p><b>Período Anterior</b></p>
-      <p class="resaltar">$85200</p>
-      <br />
-    </p-card>
-    <br />
-    <p-card>
-      <br />
-      <p><b>Período Actual</b></p>
-      <p class="resaltar">$102240</p>
-      <br />
-    </p-card>
+      <p-card>
+        <br />
+        <p><b>Período Actual</b></p>
+        <p class="resaltar">$102240</p>
+        <!-- br /-->
+      </p-card>
+    </div>
+
+    <div class="ui-g-12 ui-md-12 ui-lg-6" *ngIf="show">
+      <p-card>
+        <!--p-fullCalendar [events]="events" [options]="optionsCalendar"></p-fullCalendar-->
+        <p-chart type="pie" [data]="data3" [options]="options3"></p-chart>
+        <p-footer style="color: red;">
+          <small>Métrica actualizada al <b>{{ now | date: 'shortDate' }}</b></small>
+        </p-footer>
+      </p-card>
+    </div>
   </div>
 
-  <div class="ui-g-12 ui-md-12 ui-lg-6">
-    <p-card>
-      <!--p-fullCalendar [events]="events" [options]="optionsCalendar"></p-fullCalendar-->
-      <p-chart type="pie" [data]="data3" [options]="options3"></p-chart>
-      <p-footer style="color: red;">
-        <small>Métrica actualizada al <b>{{ now | date: 'shortDate' }}</b></small>
-      </p-footer>
-    </p-card>
-  </div>
-</div>
-
-<div class="ui-g ui-fluid">
-  <div class="ui-g-12 ui-md-12 ui-lg-6">
-    <p-card>
-      <p-chart type="bar" [data]="data1" [options]="options1"></p-chart>
-      <p-footer style="color: red;">
-        <small>Métrica actualizada al <b>{{ now | date: 'shortDate' }}</b></small>
-      </p-footer>
-    </p-card>
-  </div>
-  <div class="ui-g-12 ui-md-12 ui-lg-6">
-    <p-card>
-      <p-toast></p-toast>
-      <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)" [options]="options"></p-chart>
-      <p-footer style="color: red;">
-        <small>Métrica actualizada al <b>{{ now | date: 'shortDate' }}</b></small>
-      </p-footer>
-    </p-card>
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-12 ui-lg-6" *ngIf="show">
+      <p-card>
+        <p-chart type="bar" [data]="data1" [options]="options1"></p-chart>
+        <p-footer style="color: red;">
+          <small>Métrica actualizada al <b>{{ now | date: 'shortDate' }}</b></small>
+        </p-footer>
+      </p-card>
+    </div>
+    <div class="ui-g-12 ui-md-12 ui-lg-6" *ngIf="show">
+      <p-card>
+        <p-toast></p-toast>
+        <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)" [options]="options"></p-chart>
+        <p-footer style="color: red;">
+          <small>Métrica actualizada al <b>{{ now | date: 'shortDate' }}</b></small>
+        </p-footer>
+      </p-card>
+    </div>
   </div>
 </div>

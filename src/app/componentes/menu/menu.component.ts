@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { GeneralService } from 'src/app/servicios/generales/general.service';
+import { Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/generales/autenticacion.service';
 
 @Component({
   selector: 'app-menu',
@@ -13,23 +15,31 @@ export class MenuComponent implements OnInit {
   items: MenuItem[] = [];
   loading = false;
 
-  constructor(private general: GeneralService) {
-    this.getTransacciones();
+  constructor(private general: GeneralService, 
+    private auth: AutenticacionService,
+    private router: Router) {
+    this.transacciones = auth.transacciones;
+    this.cargarMenu();
   }
 
-  getTransacciones() {
+  /*getTransacciones() {
     this.loading = true;
     this.general
       .getTransacciones()
       .then(data => {
-        //console.log(JSON.stringify(data));
+        if(!data){
+          this.router.navigate(['/login']);
+        }
+        console.log(JSON.stringify(data));
         this.transacciones = data;
         this.cargarMenu();
         this.loading = false;
+        console.log("this.loading : "+ this.loading);
       });
-  }
+  }*/
 
   cargarMenu() {
+    console.log(this.transacciones);
     this.transacciones.forEach(transaccion => {
       this.items.push(
         {
@@ -56,7 +66,7 @@ export class MenuComponent implements OnInit {
           {
             label: transaccion1.descripcion,
             icon: transaccion1.parametros,
-            command: (event) => this.nagivate(transaccion1.parametros, transaccion1.descripcion, icono, transaccion1.ageTransaccionesPK.aplicaciCodigo, transaccion1.ageTransaccionesPK.codigo )
+            command: (event) => this.nagivate(transaccion1.parametros, transaccion1.descripcion, icono, transaccion1.id.ageAplicaCodigo, transaccion1.id.codigo, transaccion1.ruta)
           }
         );
       } else {
@@ -77,7 +87,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  nagivate(componente, descripcion, icono, aplicacion, transaccion) {
-    this.general.agregarTab(componente, descripcion, icono, aplicacion, transaccion);
+  nagivate(componente, descripcion, icono, aplicacion, transaccion, ruta) {
+    this.general.agregarTab(componente, descripcion, icono, aplicacion, transaccion, ruta);
   }
 }

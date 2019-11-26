@@ -6,10 +6,14 @@ import { IndexComponent } from 'src/app/componentes/index/index.component';
 import { ParametrosGeneralesComponent } from 'src/app/componentes/paginas/ace/man/parametros-generales/parametros-generales.component';
 import { Subject } from 'rxjs';
 import { AutenticacionService } from './autenticacion.service';
+import { PaisesComponent } from 'src/app/componentes/paginas/age/man/paises/paises.component';
+import { AgeSecuenciaPrimariaComponent } from 'src/app/componentes/paginas/age/man/age-secuencia-primaria/age-secuencia-primaria.component';
 
 const entryComponents = {
   parametrosGenerales: ParametrosGeneralesComponent,
-  index: IndexComponent
+  index: IndexComponent,
+  paises: PaisesComponent,
+  secuenciaPrimaria: AgeSecuenciaPrimariaComponent
 };
 
 
@@ -21,8 +25,8 @@ export class GeneralService {
 
   tabs: MenuItem[];
   activeItem: MenuItem;
-  rutaActual: any[];
-  iconoActual: any;
+  rutaActual: any[] = [];
+  iconoActual: any = '';
   navColor = "#2C6AA0";
   rutaLogo = "http://192.168.0.116:8080/ClearGlassPrep/assets/images/logos/logo2.png";
   rutaFoto = "http://192.168.0.116:8080/ClearGlassPrep/images/usuario/usersmf_64.png";
@@ -46,6 +50,9 @@ export class GeneralService {
     this.tabs = [
       { label: 'Inicio', icon: 'pi pi-home', queryParams: { 'viewRef': entry1 }, id: '0' }
     ];
+    this.rutaActual = [
+      { label: 'Home' }
+    ];
 
     this.activeItem = this.tabs[0];
 
@@ -54,7 +61,7 @@ export class GeneralService {
   ngAfterViewInit() {
   }
 
-  agregarTab(componente, descripcion, icono, aplicacion, transaccion) {
+  agregarTab(componente, descripcion, icono, aplicacion, transaccion, ruta) {
 
     if (!this.verificarSiExiste(aplicacion, transaccion)) {
       const factory = this.resolver.resolveComponentFactory(entryComponents[componente]);
@@ -64,7 +71,7 @@ export class GeneralService {
       let id = this.tabs.length;
       console.log(id);
       this.tabs.push({
-        label: descripcion, icon: icono, queryParams: { 'viewRef': entry1, 'codigoAplicacion': aplicacion, 'codigoTransaccion': transaccion, id: id }
+        label: descripcion, icon: icono, queryParams: { 'viewRef': entry1, 'codigoAplicacion': aplicacion, 'codigoTransaccion': transaccion, 'ruta': ruta, id: id }
       });
 
 
@@ -83,18 +90,5 @@ export class GeneralService {
     }
   }
 
-  getTransacciones() {
-    //this.token = sessionStorage.getItem("token");
-    return new Promise(resolve => {
-      this.http.get(this.API_URL + '/sasf-auditoria/transacciones/' + this.authService.codigoUsuario + '/' + this.authService.codigoLicenciatario,
-        { headers: new HttpHeaders().set('Authorization', this.authService.token) })
-        .subscribe(data => {
-          //alert(data);
-          resolve(data);
-        }, err => {
-          alert("Servicio no disponible por el momento, inténtelo mas tarde.");
-          console.log(err);
-        });
-    });
-  }
+  
 }

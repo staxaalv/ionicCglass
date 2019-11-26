@@ -29,7 +29,7 @@ import { ToastModule } from 'primeng/toast';
 import { GaugeChartModule } from 'angular-gauge-chart'
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { PaginatorModule } from 'primeng/paginator';
-import {OverlayPanelModule} from 'primeng/overlaypanel';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { IndexComponent } from './componentes/index/index.component';
 import { ParametrosGeneralesComponent } from './componentes/paginas/ace/man/parametros-generales/parametros-generales.component';
@@ -37,6 +37,10 @@ import { CabeceraCodigoDescripcionComponent } from './componentes/recursos/cabec
 import { DetalleTablaComponent } from './componentes/recursos/detalle/detalle-tabla/detalle-tabla.component';
 import { DetalleComponent } from './componentes/recursos/detalles/detalle/detalle.component';
 import { JerarquiaComponent } from './componentes/recursos/jerarquia/jerarquia.component';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { PaisesComponent } from './componentes/paginas/age/man/paises/paises.component';
+import { AgeSecuenciaPrimariaComponent } from './componentes/paginas/age/man/age-secuencia-primaria/age-secuencia-primaria.component';
 
 @NgModule({
   declarations: [
@@ -49,10 +53,13 @@ import { JerarquiaComponent } from './componentes/recursos/jerarquia/jerarquia.c
     PrincipalComponent,
     IndexComponent,
     ParametrosGeneralesComponent,
+    PaisesComponent,
     CabeceraCodigoDescripcionComponent,
     DetalleTablaComponent,
     DetalleComponent,
-    JerarquiaComponent
+    JerarquiaComponent,
+    PaisesComponent,
+    AgeSecuenciaPrimariaComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +83,8 @@ import { JerarquiaComponent } from './componentes/recursos/jerarquia/jerarquia.c
     BreadcrumbModule,
     PaginatorModule,
     OverlayPanelModule,
+    MessagesModule,
+    MessageModule,
     NgxLoadingModule.forRoot({
       animationType: ngxLoadingAnimationTypes.doubleBounce,
       backdropBackgroundColour: 'rgba(0,0,0,0.1)',

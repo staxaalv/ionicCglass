@@ -5,6 +5,8 @@ import { HomeComponent } from './componentes/home/home.component';
 import { AuthGuard } from './servicios/auth/auth.guard';
 import { IndexComponent } from './componentes/index/index.component';
 import { ParametrosGeneralesComponent } from './componentes/paginas/ace/man/parametros-generales/parametros-generales.component';
+import { PaisesComponent } from './componentes/paginas/age/man/paises/paises.component';
+import { AgeSecuenciaPrimariaComponent } from './componentes/paginas/age/man/age-secuencia-primaria/age-secuencia-primaria.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,6 +20,12 @@ const routes: Routes = [
       },
       {
         path: 'parametrosGenerales', component: ParametrosGeneralesComponent
+      },
+      {
+        path: 'paises', component: PaisesComponent
+      },
+      {
+        path: 'secuenciaPrimaria', component: AgeSecuenciaPrimariaComponent
       }
     ]
   },

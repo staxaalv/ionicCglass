@@ -1,0 +1,11 @@
+<app-jerarquia></app-jerarquia>
+
+<app-detalle [data]="detalle" 
+             [cols]="cols" 
+             [name]="titulo" 
+             [loading]="loading" 
+             [errorGuardar]="errorGuardar"
+             (agregarFila)="agregarFila()"
+             (guardarFilas)="guardar()"
+             [msgsIngresar]="msgsIngresar"
+             [msgsActualizar]="msgsActualizar"></app-detalle>

@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   //apiUrl: 'http://192.168.0.20:8080/sasf-auditoria'
-  apiUrl: 'http://192.168.0.20:8765'
+  //apiUrl: 'http://192.168.0.20:8765'
+  apiUrl: 'https://192.168.0.20:8443',
+  apiUrlAge: 'https://192.168.0.20:9443'
 };
 
 /*

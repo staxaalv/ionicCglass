@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { MessageService } from 'primeng/api';
 })
 export class IndexComponent implements OnInit {
 
-  show: boolean = false;
+  show: boolean;
   data: any;
   data1: any;
   data3: any;
@@ -19,7 +20,7 @@ export class IndexComponent implements OnInit {
   options: any;
   options1: any;
   options3: any;
-  now: any;
+  now: Date;
   events: any[];
 
   canvasWidth: any = 325
@@ -38,7 +39,7 @@ export class IndexComponent implements OnInit {
   }
 
   constructor(private messageService: MessageService) {
-    this.now = new Date();
+    //this.now = new Date();
   }
 
   selectData(event) {
@@ -46,6 +47,7 @@ export class IndexComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    this.now = new Date();
     this.show = true;
   }
   ngAfterViewChecked() {
@@ -140,6 +142,8 @@ export class IndexComponent implements OnInit {
         position: 'bottom'
       }
     }
+
+    //this.show = true;
   }
 
 }

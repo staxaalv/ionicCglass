@@ -1,8 +1,8 @@
 <!--p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
 <button #btn type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event)"></button-->
 
-<p-panelMenu [model]="items" [transitionOptions]="'0ms'"
-    [style]="{'width':'100%', 'text-align':'left', 'font-size':'10px'}"></p-panelMenu>
+<p-panelMenu [model]="items" [transitionOptions]="'300ms'"
+    [style]="{'width':'100%', 'text-align':'left', 'font-size':'10px', 'margin-top': '1px'}"></p-panelMenu>
 
 <div class="my-container">
     <ng-template #customLoadingTemplate>
