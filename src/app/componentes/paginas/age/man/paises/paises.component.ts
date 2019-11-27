@@ -17,6 +17,8 @@ export class PaisesComponent {
   msgsIngresar: Message[] = [];
   msgsActualizar: Message[] = [];
   titulo: String = "Lista Países";
+  listaEliminar: any[] = [];
+  key: String = "codigo";
 
   constructor(private ageService: AgeService, private sanitizer: DomSanitizer) {
     this.getDetalles();
@@ -31,7 +33,6 @@ export class PaisesComponent {
         if (res.respuestaCodigo == 0) {
           if (res.data) {
             this.detalle = res.data;
-            console.log(this.detalle);
             this.cargarColumnas();
           }
         } else {
@@ -70,7 +71,7 @@ export class PaisesComponent {
     ];
   }
 
-  async agregarFila() {
+  agregar() {
     //this.parametrosGenerales.map(t => console.log(JSON.stringify(t)));
     this.detalle.unshift({
       //'id': 0,
@@ -111,7 +112,7 @@ export class PaisesComponent {
           this.msgsIngresar.push({ severity: 'success', summary: 'Guardado con éxito ' });
         setTimeout(() => {
             this.msgsIngresar = [];
-          }, 6000);
+          }, 5000);
         }
       });
     }
@@ -130,7 +131,7 @@ export class PaisesComponent {
           this.msgsActualizar.push({ severity: 'success', summary: 'Actualizado con éxito ' });
           setTimeout(() => {
             this.msgsActualizar = [];
-          }, 6000);
+          }, 5000);
         }
       });
       /*detallesModificar.forEach(t => {
@@ -153,7 +154,36 @@ export class PaisesComponent {
         });
       });*/
     }
+  }
 
+  eliminar(listaEliminar) {
+    let listaEliminarBase: any [] = [];
+    console.log(listaEliminar.length);
+    listaEliminar.map(select => {
+      if(!select.nuevo){
+        select.estado = "N";
+        listaEliminarBase.push(select);
+      }
+    });
+    console.log(listaEliminarBase);
+    this.ageService.actualizarDetalles(this.ageService.PAIS_URL, listaEliminarBase).then((data: any) => {
+      this.loading = false;
+      if (data.respuestaCodigo === -1) {
+        this.msgsActualizar = [];
+        this.msgsActualizar.push({ severity: 'error', summary: 'Error al eliminar: ', detail: JSON.stringify(data.error.message) });
+      } else {
+        listaEliminar.map(select => {
+          let i = this.detalle.indexOf(select);
+          this.detalle.splice(i, 1)
+        });
+        this.listaEliminar = [];
+        this.msgsActualizar = [];
+        this.msgsActualizar.push({ severity: 'success', summary: 'Eliminado con éxito ' });
+        setTimeout(() => {
+          this.msgsActualizar = [];
+        }, 5000);
+      }
+    });
 
   }
 }

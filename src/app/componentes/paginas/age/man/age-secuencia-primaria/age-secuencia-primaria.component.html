@@ -5,5 +5,10 @@
              [name]="titulo" 
              [loading]="loading" 
              [errorGuardar]="errorGuardar"
+             [selected]="listaEliminar"
+             [key]="key"
              (agregarFila)="agregarFila()"
-             (guardarFilas)="guardar()"></app-detalle>
+             (guardarFilas)="guardar()"
+             (eliminarFilas)="eliminar($event)"
+             [msgsIngresar]="msgsIngresar"
+             [msgsActualizar]="msgsActualizar"></app-detalle>

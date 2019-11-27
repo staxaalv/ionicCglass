@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AgeService } from 'src/app/servicios/age/age.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Alert } from 'selenium-webdriver';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-age-secuencia-primaria',
@@ -15,6 +16,10 @@ export class AgeSecuenciaPrimariaComponent {
   errorGuardar: boolean = false;
   cols: any[];
   titulo: String = "Lista Secuencia Primaria";
+  listaEliminar: any[] = [];
+  msgsIngresar: Message[] = [];
+  msgsActualizar: Message[] = [];
+  key: String = "codigo";
 
   constructor(private ageService: AgeService, private sanitizer: DomSanitizer) {
     this.getDetalles();
@@ -157,4 +162,32 @@ export class AgeSecuenciaPrimariaComponent {
     });
   }
 
+  eliminar(listaEliminar) {
+    let listaEliminarBase: any [] = [];
+    listaEliminar.map(select => {
+      if(!select.nuevo){
+        select.estado = "N";
+        listaEliminarBase.push(select);
+      }
+    });
+    this.ageService.actualizarDetalles(this.ageService.SECUENCIA_PRIMARIA_URL, listaEliminarBase).then((data: any) => {
+      this.loading = false;
+      if (data.respuestaCodigo === -1) {
+        this.msgsActualizar = [];
+        this.msgsActualizar.push({ severity: 'error', summary: 'Error al eliminar: ', detail: JSON.stringify(data.error.message) });
+      } else {
+        listaEliminar.map(select => {
+          let i = this.detalle.indexOf(select);
+          this.detalle.splice(i, 1)
+        });
+        this.listaEliminar = [];
+        this.msgsActualizar = [];
+        this.msgsActualizar.push({ severity: 'success', summary: 'Eliminado con éxito ' });
+        setTimeout(() => {
+          this.msgsActualizar = [];
+        }, 6000);
+      }
+    });
+
+  }
 }

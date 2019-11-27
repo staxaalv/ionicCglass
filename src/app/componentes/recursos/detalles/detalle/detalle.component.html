@@ -8,9 +8,11 @@
   </p-messages>
 
   <p-table #dt [columns]="cols" [value]="data" [paginator]="true" [totalRecords]="data.length" [first]="first"
-    (onPage)="paginate($event)" [showCurrentPageReport]="true" 
-    currentPageReportTemplate="{{page}} de {{currentPageReport}}"
-    [rowsPerPageOptions]="[5,10,20,30]" [loading]="loading" [rows]="rows" [(selection)]="selected" [responsive]="true">
+    (onPage)="paginate($event)" 
+    [showCurrentPageReport]="true" currentPageReportTemplate="{{getPageCurrent()}} de {{getTotalPage()}}"
+    [rowsPerPageOptions]="[5,10,20,30]" [loading]="loading" [rows]="rows" [(selection)]="selected" 
+    [dataKey]="key"
+    [responsive]="true">
     <ng-template pTemplate="caption">
 
       <label class="titulo-detalle">
@@ -44,15 +46,19 @@
           <!--input pInputText type="text" style="width: 100%;"
             (input)="dt.filter($event.target.value, col.field, 'contains')"-->
           <input pInputText [type]="col.tipo || 'text'" *ngIf="col.field2 && !col.opciones" class="width100"
-            (input)="dt.filter($event.target.value, col.field  +'.'+ col.field2, 'contains')" />
+            (input)="dt.filter($event.target.value, col.field  +'.'+ col.field2, 'contains')" 
+            [value]="dt.filters[col.field  +'.'+ col.field2] ? dt.filters[col.field  +'.'+ col.field2].value : ''"/>
           <p-dropdown [options]="agregarVacio(col.opciones)" *ngIf="col.field2 && col.opciones"
-            (onChange)="dt.filter($event.value, col.field  +'.'+ col.field2, 'contains')" class="width100">
+            (onChange)="dt.filter($event.value, col.field  +'.'+ col.field2, 'contains')" class="width100"
+            [ngModel]="dt.filters[col.field  +'.'+ col.field2] ? dt.filters[col.field  +'.'+ col.field2].value : ''">
           </p-dropdown>
 
           <input pInputText type="text" class="width100" *ngIf="!col.field2 && !col.opciones"
-            (input)="dt.filter($event.target.value, col.field, 'contains')" />
+            (input)="dt.filter($event.target.value, col.field, 'contains')" 
+            [value]="dt.filters[col.field] ? dt.filters[col.field].value : ''" />
           <p-dropdown *ngIf="!col.field2 && col.opciones" (onChange)="dt.filter($event.value, col.field, 'contains')"
-            [options]="agregarVacio(col.opciones)" class="width100"></p-dropdown>
+            [options]="agregarVacio(col.opciones)" class="width100"
+            [ngModel]="dt.filters[col.field] ? dt.filters[col.field].value : ''"></p-dropdown>
 
         </th>
       </tr>
@@ -106,6 +112,7 @@
         {{data.length}} Registros
       </label>
     </ng-template>
+
   </p-table>
 
 

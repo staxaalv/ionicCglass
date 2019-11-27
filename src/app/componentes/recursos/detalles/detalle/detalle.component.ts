@@ -3,6 +3,7 @@ import { IndexComponent } from 'src/app/componentes/index/index.component';
 import { Paginator } from 'primeng/paginator';
 import { LazyLoadEvent, Message } from 'primeng/api';
 import { OverlayPanel } from 'primeng/overlaypanel';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-detalle',
@@ -18,56 +19,56 @@ export class DetalleComponent implements OnInit {
   @Input() errorGuardar: boolean;
   @Input() msgsIngresar: Message[];
   @Input() msgsActualizar: Message[];
+  @Input() selected: any[];
+  @Input() key: String;
 
   @Output() agregarFila = new EventEmitter<string>(false);
   @Output() guardarFilas = new EventEmitter<string>(true);
+  @Output() eliminarFilas = new EventEmitter<any>(true);
 
   errorSeleccionado: String = "";
   first: number = 0;
   rows: number = 5;
-  page: number = 1;
-
-  @ViewChild(Paginator, { read: ViewContainerRef, static: false }) paginator: Paginator;
-  
-
-  
-  selected: any[];
+  //page: number = 1;
   displayDialog: boolean;
-  /*myStyles = {
-    'background-color': 'lime',
-    'font-size': '20px',
-    'font-weight': 'bold'
-  }*/
 
-  constructor() { }
+  //@ViewChild(Table) dataTableComponent: Table;
+
+  @ViewChild('dt', { read: Table, static: false })
+  dt: Table;
+
+  constructor() {
+  }
 
   ngOnInit() {
-    //console.log(JSON.stringify(this.data));
   }
 
   ngAfterViewInit() {
-    //console.log(JSON.stringify(this.data));
   }
 
   async agregar() {
     console.log(this.first);
     this.first = 0;
-    this.page = 1;
+    //this.page = 1;
     await this.agregarFila.emit();
     setTimeout(() => {
       this.focusCelda();
     }, 200);
-
   }
 
   async guardar() {
     await this.guardarFilas.emit();
   }
 
+  async eliminar() {
+    await this.eliminarFilas.emit(this.selected);
+    this.dt.reset();
+    this.first = 0;
+  }
+
   modificado(data) {
     if (!data.nuevo)
       data.modificado = true;
-    //data.guardado = false;
   }
 
   agregarVacio(options: any[]) {
@@ -79,24 +80,9 @@ export class DetalleComponent implements OnInit {
     }
   }
 
-  eliminar() {
-    let index: number[] = [];
 
-    
-
-    this.selected.map(select => {
-      let i = this.data.indexOf(select);
-      this.data.splice(i, 1)
-    });
-    console.log(index);
-    //index.map((i:number) => this.data.splice(i) );
-    this.selected = [];
-    this.paginator.ngOnInit();
-  }
 
   showDialogToAdd() {
-    //this.newCar = true;
-    //this.car = {};
     this.displayDialog = true;
   }
 
@@ -106,12 +92,7 @@ export class DetalleComponent implements OnInit {
   }
 
   focusCelda() {
-    //alert(document.getElementsByTagName("tr")[2].getElementsByTagName("input")[0].type);
-    //alert(document.getElementsByTagName("tr")[2].getElementsByTagName("input")[1].disabled);
-
     let elementos = document.getElementsByTagName("tr")[2].getElementsByTagName("input");
-
-    //document.getElementsByTagName("tr")[2].getElementsByTagName("input")[1].click();
     for (let i = 0; i < elementos.length; i++) {
       if (elementos[i].type != 'checkbox' && !elementos[i].disabled) {
         elementos[i].focus();
@@ -120,11 +101,19 @@ export class DetalleComponent implements OnInit {
     }
   }
 
-  paginate($event){
+  paginate($event) {
     console.log($event);
-    //this.page = $event.page;
     this.first = $event.first;
-    this.page = $event.first/$event.rows + 1;
-    //this.first = $event.first/$event.rows + 1;
+    //this.page = $event.first / $event.rows + 1;
+    this.rows = $event.rows;
   }
+
+  getTotalPage() {
+    return Math.ceil(this.data.length / this.rows);;
+  }
+
+  getPageCurrent() {
+    return this.first / this.rows + 1;
+  }
+
 }

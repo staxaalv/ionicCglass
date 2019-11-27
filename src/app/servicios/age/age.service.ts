@@ -174,8 +174,10 @@ export class AgeService {
     });
   }
 
-  async actualizarDetalles(URL, data) {
-    data.usuarioModificacion = this.authService.codigoUsuario;
+  async actualizarDetalles(URL, data: any[]) {
+    data.forEach(t => {
+      t.usuarioModificacion = this.authService.codigoUsuario;
+    });
     return new Promise(resolve => {
       this.http.put(this.API_URL + URL+ '/varios',
         JSON.stringify(data),
@@ -220,8 +222,10 @@ export class AgeService {
     });
   }
 
-  async actualizarDetallesLicenciatario(URL, data) {
-    data.usuarioModificacion = this.authService.codigoUsuario;
+  async actualizarDetallesLicenciatario(URL, data: any[] ){
+    data.forEach(t => {
+      t.usuarioModificacion = this.authService.codigoUsuario;
+    });
     return new Promise(resolve => {
       this.http.put(this.API_URL + URL + '/varios/' + this.authService.codigoLicenciatario,
         JSON.stringify(data),
