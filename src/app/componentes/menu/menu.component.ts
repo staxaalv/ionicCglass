@@ -66,7 +66,7 @@ export class MenuComponent implements OnInit {
           {
             label: transaccion1.descripcion,
             icon: transaccion1.parametros,
-            command: (event) => this.nagivate(transaccion1.parametros, transaccion1.descripcion, icono, transaccion1.id.ageAplicaCodigo, transaccion1.id.codigo, transaccion1.ruta)
+            command: (event) => this.nagivate(transaccion1.url, transaccion1.descripcion, icono, transaccion1.id.ageAplicaCodigo, transaccion1.id.codigo, transaccion1.ruta)
           }
         );
       } else {

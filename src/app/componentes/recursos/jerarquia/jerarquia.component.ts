@@ -13,12 +13,21 @@ export class JerarquiaComponent implements OnInit {
 
   home: MenuItem = { icon: 'pi pi-pw pi-home' };
 
+  mostrar: boolean = false;
+
   constructor(private gService: GeneralService) {
 
   }
+  ngAfterViewInit(){
+    
+    //this.mostrar = true;
+  }
   ngOnInit() {
 
-
+    if (this.gService){
+      this.items = this.gService.rutaActual;
+      this.home = { icon: this.gService.iconoActual };
+    }
     /*this.items = [
       { label: 'Categories' },
       { label: 'Sports' },
@@ -29,8 +38,9 @@ export class JerarquiaComponent implements OnInit {
       { label: 'Squad' },
       { label: 'Lionel Messi', url: 'https://en.wikipedia.org/wiki/Lionel_Messi', icon: 'pi pi-external-link' }
     ];*/
-    this.items = this.gService.rutaActual;
+    
+      
 
-    this.home = { icon: this.gService.iconoActual };
+    
   }
 }

@@ -30,12 +30,13 @@ export class LoginComponent {
   obtenerDatosUsuario() {
 
     this.loading = true;
-    this.autenticacion.obtenerDatosUsuario(this.usuario)
+    this.autenticacion.obtenerDatosUsuario(this.usuario, this.clave)
       .then((data: any) => {
         this.loading = false;
         if (data.respuestaCodigo == 0) {
           //this.router.navigate(['/home']);
           this.obtenerTransacciones();
+          this.general.user = this.usuario;
         } else {
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'Error al obtener datos: ', detail: data.error });
@@ -79,7 +80,7 @@ export class LoginComponent {
   loginButton() {
 
     this.loading = true;
-    this.autenticacion.autenticacion(this.usuario, this.clave)
+    this.autenticacion.autenticacion(this.usuario)
       .then((data: any) => {
         this.loading = false;
         if (data.respuestaCodigo == 0) {

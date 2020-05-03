@@ -1,5 +1,18 @@
+<div class="my-container">
+    <ng-template #customLoadingTemplate>
+    </ng-template>
+
+    <ngx-loading [show]="loading" [config]="{ fullScreenBackdrop: 'true',
+        backdropBackgroundColour: 'rgba(121,98,98,0.3)', backdropBorderRadius: '10px',
+        primaryColour: '#ed1c24', secondaryColour: '#888 ', tertiaryColour: '#ed1c24' }"
+        [template]="customLoadingTemplate">
+      
+      </ngx-loading>
+</div>
+
 <div id="navbar" #nav class="navbar navbar-default ace-save-state" [style.background]="general.navColor">
 
+  
   <!--div class="navbar-header pull-left"-->
   <a href="/home" target="_self" class="navbar-brand">
     <!--small-->
@@ -13,7 +26,7 @@
     [minY]="70" [positionTop]="70" [positionLeft]="nav.offsetWidth - 150" [maximizable]="true" [baseZIndex]="10000"
     [dismissableMask]="true" [showHeader]="false" [contentStyle]="{'padding':'0px'}">
     <button pButton icon="pi pi-user" class="sasf-block ui-button-secondary" label="Cambiar Contraseña"></button>
-    <button pButton icon="pi pi-sign-out" class="sasf-block ui-button-secondary" label="Cerrar Sesión"></button>
+    <button pButton icon="pi pi-sign-out" class="sasf-block ui-button-secondary" label="Cerrar Sesión" (click)="cerrarSesion()"></button>
   </p-dialog>
   <div id="user" style="border-left: 1px solid #FFF;height: 100%;float: right;width: 150px;">
 

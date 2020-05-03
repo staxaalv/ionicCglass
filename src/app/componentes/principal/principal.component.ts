@@ -6,7 +6,8 @@ import {
   ComponentFactoryResolver,
   ComponentRef,
   ComponentFactory,
-  Injector
+  Injector,
+  OnDestroy
 } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { GeneralService } from 'src/app/servicios/generales/general.service';
@@ -24,20 +25,35 @@ export class PrincipalComponent {
   entry: ViewContainerRef;
 
   constructor(public general: GeneralService) { }
+
   
+
   ngAfterViewInit() {
+    this.cargarHome();
     this.general.activeItemChange.subscribe((value: MenuItem) => {
       console.log("change active item");
-      this.entry.detach();
-      if (value.queryParams.ruta)
-        this.cargarRuta(value.queryParams.ruta);
-      //this.general.rutaActual = [{ label: 'Comprobante Electronico' }, { label: 'Parametros' }]/*value.queryParams.ruta*/;
-      this.general.iconoActual = value.icon;
-      this.entry.insert(value.queryParams.viewRef.hostView, 0);
-      //console.log(this.entry.);
-    });
-    this.general.activeItemChange.next(this.general.tabs[0]);
+      if (value) {
+        this.entry.detach();
+        if (value.queryParams.ruta)
+          this.cargarRuta(value.queryParams.ruta);
+        //this.general.rutaActual = [{ label: 'Comprobante Electronico' }, { label: 'Parametros' }]/*value.queryParams.ruta*/;
+        this.general.iconoActual = value.icon;
+        this.entry.insert(value.queryParams.viewRef.hostView, 0);
+        //console.log(this.entry.);
+      }
 
+    });
+    //this.general.activeItemChange.next(this.general.tabs[0]);
+
+  }
+
+  cargarHome() {
+    const factory = this.general.resolver.resolveComponentFactory(IndexComponent);
+    let entry1 = factory.create(this.general.injector);
+    setTimeout(() => {
+      this.general.tabs[0].queryParams.viewRef = entry1;
+      this.entry.insert(entry1.hostView, 0);
+    }, 500);
   }
 
   cargarRuta(ruta: String) {
@@ -55,9 +71,17 @@ export class PrincipalComponent {
 
   closeItem(event, index, id) {
 
-    console.log(id);
+    let entryRemove: ComponentRef<IndexComponent>;
+    this.general.tabs.forEach((tab, i) => {
+      if (index === i) {
+        entryRemove = this.general.tabs[i].queryParams.viewRef;
+      }
+    });
+    //this.entry.remove();
     this.general.tabs = this.general.tabs.filter((item, i) => i !== index);
     this.general.activeItemChange.next(this.general.tabs[this.general.tabs.length - 1]);
+    entryRemove.destroy();
+    //console.log(entryRemove.instance);
     //this.entry.remove(0);
 
     event.preventDefault();

@@ -1,13 +1,13 @@
 <app-jerarquia></app-jerarquia>
 
-<app-detalle [data]="detalle" 
+<app-detalle [id]="id"
+             [data]="detalle" 
              [cols]="cols" 
              [name]="titulo" 
              [loading]="loading" 
              [errorGuardar]="errorGuardar"
              [selected]="listaEliminar"
-             [key]="key"
-             (agregarFila)="agregarFila()"
+             (agregarFila)="agregar()"
              (guardarFilas)="guardar()"
              (eliminarFilas)="eliminar($event)"
              [msgsIngresar]="msgsIngresar"

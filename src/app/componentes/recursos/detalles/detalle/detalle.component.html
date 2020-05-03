@@ -1,4 +1,7 @@
-<div id="container">
+<div id="container" (window:keyup)="atajos($event)">
+  <p>{{ observable | async }}</p>
+
+
 
   <p-messages [(value)]="msgsIngresar" [closable]="true" [showTransitionOptions]="'600ms'"
     [hideTransitionOptions]="'450ms'">
@@ -7,21 +10,20 @@
     [hideTransitionOptions]="'450ms'">
   </p-messages>
 
-  <p-table #dt [columns]="cols" [value]="data" [paginator]="true" [totalRecords]="data.length" [first]="first"
-    (onPage)="paginate($event)" 
-    [showCurrentPageReport]="true" currentPageReportTemplate="{{getPageCurrent()}} de {{getTotalPage()}}"
-    [rowsPerPageOptions]="[5,10,20,30]" [loading]="loading" [rows]="rows" [(selection)]="selected" 
-    [dataKey]="key"
-    [responsive]="true">
-    <ng-template pTemplate="caption">
 
+  <p-table #dt [columns]="cols" [value]="data" [paginator]="true" [totalRecords]="data.length" [first]="first"
+    (onPage)="paginate($event)" [showCurrentPageReport]="true" (onFilter)="filtrar1($event)"
+    currentPageReportTemplate="{{getPageCurrent()}} de {{getTotalPage()}}" [rowsPerPageOptions]="[5,10,20,30]"
+    [loading]="loading" [rows]="rows" [(selection)]="selected" [responsive]="true">
+    <ng-template pTemplate="caption">
       <label class="titulo-detalle">
         {{name}}
       </label>
-      <button type="button" class="botones" pButton icon="pi pi-trash" (click)="eliminar()"></button>
+      <button type="button" class="botones" pButton icon="pi pi-trash" (click)="dt.reset();eliminar()"></button>
       <button type="button" class="botones" pButton icon="pi pi-save" (click)="guardar()"></button>
       <button type="button" class="botones" pButton icon="pi pi-plus" (click)="agregar()"></button>
     </ng-template>
+
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th class="celda-3em" *ngIf="errorGuardar">
@@ -46,18 +48,19 @@
           <!--input pInputText type="text" style="width: 100%;"
             (input)="dt.filter($event.target.value, col.field, 'contains')"-->
           <input pInputText [type]="col.tipo || 'text'" *ngIf="col.field2 && !col.opciones" class="width100"
-            (input)="dt.filter($event.target.value, col.field  +'.'+ col.field2, 'contains')" 
-            [value]="dt.filters[col.field  +'.'+ col.field2] ? dt.filters[col.field  +'.'+ col.field2].value : ''"/>
-          <p-dropdown [options]="agregarVacio(col.opciones)" *ngIf="col.field2 && col.opciones"
-            (onChange)="dt.filter($event.value, col.field  +'.'+ col.field2, 'contains')" class="width100"
+            (input)="dt.filter($event.target.value, col.field  +'.'+ col.field2, 'contains')"
+            [value]="dt.filters[col.field  +'.'+ col.field2] ? dt.filters[col.field  +'.'+ col.field2].value : ''" />
+          <p-dropdown appendTo="body" [options]="agregarVacio(col.opciones, col.async)"
+            *ngIf="col.field2 && col.opciones" (onChange)="filtrar($event, dt, col.field  +'.'+ col.field2)"
+            class="width100"
             [ngModel]="dt.filters[col.field  +'.'+ col.field2] ? dt.filters[col.field  +'.'+ col.field2].value : ''">
           </p-dropdown>
 
           <input pInputText type="text" class="width100" *ngIf="!col.field2 && !col.opciones"
-            (input)="dt.filter($event.target.value, col.field, 'contains')" 
+            (input)="dt.filter($event.target.value, col.field, 'contains')"
             [value]="dt.filters[col.field] ? dt.filters[col.field].value : ''" />
-          <p-dropdown *ngIf="!col.field2 && col.opciones" (onChange)="dt.filter($event.value, col.field, 'contains')"
-            [options]="agregarVacio(col.opciones)" class="width100"
+          <p-dropdown appendTo="body" *ngIf="!col.field2 && col.opciones" (onChange)="filtrar($event, dt, col.field)"
+            [options]="agregarVacio(col.opciones, col.async)" class="width100"
             [ngModel]="dt.filters[col.field] ? dt.filters[col.field].value : ''"></p-dropdown>
 
         </th>
@@ -77,28 +80,74 @@
         <td *ngFor="let col of columns" [style]="col.width">
           <!--div class="celda-error" > Example </div-->
 
+
           <div *ngIf="col.field2">
+
+            <p-calendar appendTo="body" *ngIf="!col.opciones && !col.async && col.tipo == 'date'"
+              [(ngModel)]="rowData[col.field][col.field2]" [locale]="es" dateFormat="dd/mm/yy"
+              (onSelect)="modificado(rowData, col)"></p-calendar>
+
             <input pInputText [type]="col.tipo || 'text'" [(ngModel)]="rowData[col.field][col.field2]"
-              *ngIf="!col.opciones" (change)="modificado(rowData)" [disabled]="col.noinsertable" class="width100" />
-            <p-dropdown *ngIf="col && col.opciones" [options]="col.opciones"
-              [(ngModel)]="rowData[col.field][col.field2]" class="width100" (onChange)="modificado(rowData)">
+              *ngIf="!col.opciones && !col.async" (change)="modificado(rowData, col)" [disabled]="col.noinsertable"
+              class="width100" />
+            <p-dropdown appendTo="body" *ngIf="col && col.opciones && !col.async" [options]="col.opciones"
+              [(ngModel)]="rowData[col.field][col.field2]" class="width100" (onChange)="modificado(rowData, col)">
             </p-dropdown>
+            <p-dropdown appendTo="body"
+              *ngIf="col && col.async && (col.opciones?.length > 0 || rowData[col.opcionDinamica]?.length > 0)"
+              [options]="col.dynamic ? rowData[col.opcionDinamica] : col.opciones"
+              [(ngModel)]="rowData[col.field][col.field2]" class="width100" (onChange)="modificado(rowData, col)">
+              <ng-template let-item pTemplate="selectedItem">
+                <span [class.celda-modificada]="rowData['modificado']">{{item.label}}</span>
+              </ng-template>
+            </p-dropdown>
+            <div *ngIf="col.async">
+              <p-progressSpinner *ngIf="col.opciones?.length == 0 || rowData[col.opcionDinamica]?.length == 0"
+                [style]="{width: '18px', height: '18px'}" strokeWidth="8" fill="#EEEEEE" animationDuration=".6s">
+              </p-progressSpinner>
+            </div>
 
 
           </div>
           <div *ngIf="!col.field2">
-            <input pInputText [type]="col.tipo || 'text'" [(ngModel)]="rowData[col.field]" *ngIf="!col.opciones"
-              (change)="modificado(rowData)" class="width100" [disabled]="col.noinsertable" />
-            <p-dropdown *ngIf="col && col.opciones" [options]="col.opciones" [(ngModel)]="rowData[col.field]"
-              class="width100" (onChange)="modificado(rowData)">
+            <p-calendar appendTo="body" *ngIf="!col.opciones && !col.async && col.tipo == 'date'"
+              [(ngModel)]="rowData[col.field]" [locale]="es" dateFormat="dd/mm/yy"
+              (onSelect)="modificado(rowData, col)"></p-calendar>
+
+            <input pInputText [type]="col.tipo || 'text' " [(ngModel)]="rowData[col.field]"
+              *ngIf="!col.opciones && !col.async && col.tipo != 'date'" (change)="modificado(rowData, col)"
+              class="width100" [disabled]="col.noinsertable" />
+            <p-dropdown appendTo="body" *ngIf="col && col.opciones && !col.async" [options]="col.opciones"
+              [(ngModel)]="rowData[col.field]" class="width100" (onChange)="modificado(rowData, col)">
               <ng-template let-item pTemplate="selectedItem">
                 <span [class.celda-modificada]="rowData['modificado']">{{item.label}}</span>
               </ng-template>
             </p-dropdown>
 
+            <p-dropdown appendTo="body"
+              *ngIf="col && col.async && (col.opciones?.length > 0 || rowData[col.opcionDinamica]?.length > 0)"
+              [options]="col.dynamic ? rowData[col.opcionDinamica] : col.opciones" [(ngModel)]="rowData[col.field]"
+              class="width100" (onChange)="modificado(rowData, col)">
+              <ng-template let-item pTemplate="selectedItem">
+                <span [class.celda-modificada]="rowData['modificado']">{{item.label}}</span>
+              </ng-template>
+            </p-dropdown>
+            <div *ngIf="col.async">
+              <p-progressSpinner *ngIf="col.opciones?.length == 0 || rowData[col.opcionDinamica]?.length == 0"
+                [style]="{width: '18px', height: '18px'}" strokeWidth="8" fill="#EEEEEE" animationDuration=".6s">
+              </p-progressSpinner>
+            </div>
+
+
           </div>
         </td>
       </tr>
+    </ng-template>
+
+    <ng-template pTemplate="summary">
+      <button type="button" class="botones" pButton icon="pi pi-trash" (click)="eliminar()"></button>
+      <button type="button" class="botones" pButton icon="pi pi-save" (click)="guardar()"></button>
+      <button type="button" class="botones" pButton icon="pi pi-plus" (click)="dt.reset();agregar()"></button>
     </ng-template>
     <ng-template pTemplate="emptymessage" let-columns>
       <tr>
@@ -109,7 +158,7 @@
     </ng-template>
     <ng-template pTemplate="paginatorleft" let-state>
       <label class="numero-registros">
-        {{data.length}} Registros
+        {{totalRegistros ? totalRegistros : data.length}} Registros
       </label>
     </ng-template>
 

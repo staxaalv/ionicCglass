@@ -1,0 +1,14 @@
+<app-jerarquia></app-jerarquia>
+
+<app-detalle [id]="id"
+             [data]="detalle"
+             [cols]="cols"
+             [name]="titulo"
+             [loading]="loading"
+             [errorGuardar]="errorGuardar"
+             [selected]="listaEliminar"
+             (agregarFila)="agregar()"
+             (guardarFilas)="guardar()"
+             (eliminarFilas)="eliminar($event)"
+             [msgsIngresar]="msgsIngresar"
+             [msgsActualizar]="msgsActualizar"></app-detalle>

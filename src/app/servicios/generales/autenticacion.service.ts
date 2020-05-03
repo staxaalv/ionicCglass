@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from '@angular/common/http';
 import { environment } from './../../../environments/environment';
 import { GeneralService } from './general.service';
 
@@ -14,32 +14,40 @@ export class AutenticacionService {
   autenticado: boolean = false;
   codigoLicenciatario: Number;
   codigoUsuario: Number;
+  codigoSucursal: Number;
   token = "";
 
   transacciones: any;
 
   constructor(public http: HttpClient) { }
 
-  autenticacion(usuario, clave) {
+  autenticacion(usuario) {
 
-    let formData: FormData = new FormData();
-    formData.append("username", usuario);
-    formData.append("password", clave);
-    formData.append("grant_type", "password");
+    //let formData: FormData = new FormData();
+    let formData = new URLSearchParams();
+    //formData.append("username", usuario);
+    //formData.append("password", clave);
+    //formData.append("grant_type", "password");
+    formData.append("grant_type", "client_credentials");
 
-    var data = {
+    /*var data = {
       "username": usuario,
       "password": clave,
       "grant_type": "password"
-    };
+    };*/
+
+    const body = new HttpParams()
+    .set('grant_type', 'client_credentials');
 
     return new Promise((resolve) => {
       //this.http.post(this.API_URL + '/api/signin',
-      this.http.post(this.API_URL + '/oauth/token',//&grant_type=password&username=' + usuario +'&password=' + clave,
-        formData,
+      this.http.post(this.API_URL + '/token',//&grant_type=password&username=' + usuario +'&password=' + clave,
+        //formData,
+        body.toString(),
         {
           headers: new HttpHeaders()//.set('Content-Type', 'multipart/form-data')
-            .set('Authorization', 'Basic ' + btoa('aplicacionweb' + ':' + '12345abc'))
+            .set('Authorization', 'Basic ' + btoa('55rhLY2c6QRNqS2pkZmR2DRCLXwa' + ':' + 'hppVSreOczccmvt9qn8EMPxfwjca'))
+            .set('Content-Type', 'application/x-www-form-urlencoded')
             .set('Access-Control-Allow-Origin', '*')
         })
         .subscribe((res: any) => {
@@ -62,9 +70,10 @@ export class AutenticacionService {
     });
   }
 
-  obtenerDatosUsuario(usuario) {
+  obtenerDatosUsuario(usuario, clave) {
     var data = {
-      "codigoExterno": usuario
+      "codigoExterno": usuario,
+      "clave": clave
     };
 
     return new Promise((resolve) => {
@@ -79,14 +88,15 @@ export class AutenticacionService {
           this.autenticado = true;
           this.codigoUsuario = res.id.codigo;
           this.codigoLicenciatario = res.id.ageLicencCodigo;
+          this.codigoSucursal = res.ageSucursCodigo;
           let data = { respuestaCodigo: 0, datos: res };
           resolve(data);
         }, (err) => {
           let e;
           this.autenticado = false;
           console.log(err);
-          if (err.status == 401) {
-            e = "Problemas en la autenticación"
+          if (err.status == 401 || err.status == 404) {
+            e = "Problemas en la autenticación, " + err.error;
           } else {
             e = "Servicio no disponible por el momento, inténtelo mas tarde";
           }

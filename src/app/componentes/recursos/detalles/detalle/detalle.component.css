@@ -4,7 +4,7 @@
 }
 
 .botones {
-    float: right;font-size: 13px;color: white;margin-left: 2px;margin-right: 2px;
+    float: right;font-size: 11px !important;color: white;margin-left: 2px;margin-right: 2px;
 }
 
 :host >>> .ui-table .ui-table-thead > tr > th{
@@ -52,7 +52,7 @@
 }
 
 :host >>> .ui-table .ui-table-caption{
-    min-height: 44px;
+    min-height: 40px;
 }
 
 :host >>> .ui-paginator .ui-dropdown{
@@ -62,7 +62,7 @@
 :host >>> .ui-paginator .ui-dropdown .ui-dropdown-trigger{
     color: #ffffff;
     background: #2c6aa0;
-    height: 95%;
+    height: 93%;
     margin-top: 1.5px;
 }
 :host >>> .ui-paginator .ui-dropdown .ui-dropdown-label{
@@ -168,7 +168,7 @@
 }
 
 :host >>> .ui-inputtext {
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     width: 100%;
     background: transparent;
 }
@@ -177,6 +177,7 @@
     min-width: auto;
     border-color: transparent;
     background: transparent;
+    text-align: left;
 }
 
 :host >>> .ui-table .ui-table-thead > tr > th {
@@ -206,4 +207,25 @@
 :host >>> .ui-table .ui-table-thead > tr > th > p-dropdown > .ui-dropdown{
     background: white;
     width: 100%;
+}
+
+:host >>> .ui-table-wrapper{
+    overflow-x: auto;
+    overflow-y: visible;
+}
+
+:host >>> .ui-table .ui-table-summary{
+    min-height: 40px;
+}
+
+:host >>> .ui-table .ui-table-tbody > tr > td .ui-dropdown{
+    width: 100%;
+}
+
+:host >>> .ui-dropdown .ui-dropdown-panel{
+    width: max-content;
+}
+
+:host >>> .ui-calendar > .ui-inputtext {
+    text-align: center;
 }

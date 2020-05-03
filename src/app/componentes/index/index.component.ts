@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -38,23 +38,38 @@ export class IndexComponent implements OnInit {
     needleStartValue: 50,
   }
 
-  constructor(private messageService: MessageService) {
+  getMostrar(){
+    return true;
+  }
+
+  constructor(private messageService: MessageService,
+    private changeDetector: ChangeDetectorRef) {
     //this.now = new Date();
+  }
+
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
   }
 
   selectData(event) {
     this.messageService.add({ severity: 'info', summary: 'Data Selected', 'detail': this.data.datasets[event.element._datasetIndex].data[event.element._index] });
   }
 
+  getNow(){
+    return new Date();
+  }
+
   ngAfterViewInit() {
-    this.now = new Date();
-    this.show = true;
+    //this.now = new Date();
+    //this.show = true;
   }
   ngAfterViewChecked() {
     //this.show = true;
   }
-  ngOnInit() {
-    
+  ngOnInit() { 
+  }
+
+  ngAfterContentInit(){
     this.data = {
       labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
       datasets: [
@@ -143,7 +158,9 @@ export class IndexComponent implements OnInit {
       }
     }
 
-    //this.show = true;
+    setTimeout(() => {
+      this.show = true;  
+    }, 2000);
   }
 
 }

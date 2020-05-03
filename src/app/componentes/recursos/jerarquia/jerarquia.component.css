@@ -7,6 +7,7 @@
 :host >>> .ui-breadcrumb .ui-menuitem-text{
     font-weight: bold;
     font-size: 13px;
+    text-transform: capitalize;
 }
 
 :host >>> .ui-breadcrumb ul li .ui-menuitem-link{

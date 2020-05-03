@@ -10,6 +10,7 @@
 
 :host >>> .ui-panelmenu .ui-panelmenu-content .ui-menuitem .ui-menuitem-link{
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 :host >>> .ui-panelmenu .ui-panelmenu-icon{
@@ -19,3 +20,37 @@
 :host >>> .ui-panelmenu .ui-panelmenu-content .ui-menuitem .ui-menuitem-link:hover .ui-menuitem-text{
     color: #ed1c24;
 }
+
+:host >>> .ui-panelmenu .ui-panelmenu-content{
+    border: none;
+}
+
+:host >>> .ui-panelmenu .ui-panelmenu-content .ui-menuitem{
+    border: #cccccc solid 0.7px;
+}
+
+:host >>> .ui-panelmenu .ui-submenu-list{
+    margin-left: 0px;
+}
+
+:host >>> p-panelmenusub > ul > li > p-panelmenusub > ul > li > a{
+    /*margin-left: 30px !important;*/
+    font-size: 10px !important;
+}
+
+:host >>> p-panelmenusub > ul > li > p-panelmenusub > ul > li > a > span{
+    margin-left: 15px !important;
+}
+
+:host >>> p-panelmenusub > ul > li > p-panelmenusub > ul > li {
+    border-bottom: none !important;
+}
+
+:host >>> p-panelmenusub > ul > li > p-panelmenusub > ul > li > a:hover {
+    /*background-color: transparent !important;*/
+    /*font-size: 12px !important;*/
+}
+
+/*:host >>> .ui-panelmenu .ui-panelmenu-content .ui-menuitem .ui-menuitem-link:hover {
+    background-color: transparent;
+}*/
