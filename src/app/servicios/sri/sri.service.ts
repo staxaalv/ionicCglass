@@ -347,7 +347,7 @@ export class SriService {
             opciones.push({ label: "SELECCIONAR", value: 0 });
             res.data.forEach(data => {
               opciones.push(
-                { label: data.descripcion.toUpperCase(), value: data.codigo }
+                { label: data.descripcion.toUpperCase(), value: data.id }
               );
             });
           }
@@ -393,9 +393,11 @@ export class SriService {
         if (res.respuestaCodigo == 0) {
           if (res.data) {
             opciones.push({ label: "SELECCIONAR", value: 0 });
+            console.log("****RETFTEPCTJ****");
+            console.log(res.data);
             res.data.forEach(data => {
               opciones.push(
-                { label: data.descripcion.toUpperCase(), value: data.codigo }
+                { label: data.descripcion.toUpperCase(), value: data.id }
               );
             });
           }

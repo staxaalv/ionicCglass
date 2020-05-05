@@ -36,9 +36,9 @@ export class CibSubLineasComponent extends ACComponent {
         'ageLicencCodigo': t.id.cibLineaAgeLicencCodigo
       };
       t.subLineaPadreField={
-        'codigo': t.id.cibSubLiCodigo,
-        'cibLineaCodigo': t.id.cibLineaCodigo,
-        'cibLineaAgeLicencCodigo': t.id.cibLineaAgeLicencCodigo
+        'codigo': t.cibSubLiCodigo,
+        'cibLineaCodigo': t.cibSubLiCibLineaCodigo,
+        'cibLineaAgeLicencCodigo': t.cibSubLiAgeLicencCodigo
       }
     });
   }
@@ -47,9 +47,9 @@ export class CibSubLineasComponent extends ACComponent {
     t.id.cibLineaCodigo=t.lineaField.codigo;
     t.id.cibLineaAgeLicencCodigo=t.lineaField.ageLicencCodigo;
 
-    t.id.cibSubLiCodigo=t.subLineaPadreField.codigo;
-    t.id.cibSubLiCibLineaCodigo=t.subLineaPadreField.cibLineaCodigo;
-    t.id.cibSubLiAgeLicencCodigo=t.subLineaPadreField.cibLineaAgeLicencCodigo;
+    t.cibSubLiCodigo=t.subLineaPadreField.codigo;
+    t.cibSubLiCibLineaCodigo=t.subLineaPadreField.cibLineaCodigo;
+    t.cibSubLiAgeLicencCodigo=t.subLineaPadreField.cibLineaAgeLicencCodigo;
   }
 
    cargarColumnas() {

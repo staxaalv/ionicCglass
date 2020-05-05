@@ -46,6 +46,11 @@ import { CibEquivalenciasUnidadesMedidasComponent } from './componentes/paginas/
 import { CibMarcasComponent } from 'src/app/componentes/paginas/cib/man/cib-marcas/cib-marcas.component';
 import { CibLineasComponent } from './componentes/paginas/cib/man/cib-lineas/cib-lineas.component';
 import { CibSubLineasComponent } from './componentes/paginas/cib/man/cib-sub-lineas/cib-sub-lineas.component';
+import { CibProductosComponent } from './componentes/paginas/cib/man/cib-productos/cib-productos.component';
+import { CibProductosImpuestosComponent } from './componentes/paginas/cib/man/cib-productos-impuestos/cib-productos-impuestos.component';
+import { CibProductosAdicionalesComponent } from './componentes/paginas/cib/man/cib-productos-adicionales/cib-productos-adicionales.component';
+import { CibSucursalesInventarioComponent } from './componentes/paginas/cib/man/cib-sucursales-inventario/cib-sucursales-inventario.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
@@ -178,6 +183,18 @@ const routes: Routes = [
       },
       {
         path: 'cibSubLineas', component: CibSubLineasComponent
+      },
+      {
+        path: 'cibProductos', component: CibProductosComponent
+      },
+      {
+        path: 'cibProductosImpuestos', component: CibProductosImpuestosComponent
+      },
+      {
+        path: 'cibProductosAdicionales', component: CibProductosAdicionalesComponent
+      },
+      {
+        path: 'cibInvetarioSucursales', component: CibSucursalesInventarioComponent
       }
     ]
   },

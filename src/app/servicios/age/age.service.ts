@@ -346,6 +346,24 @@ export class AgeService {
         }
       });
   }
+  getSucursalIdSelect(opciones: any[]) {
+    opciones.splice(0, opciones.length);
+    this.getDetalleLicenciatario(this.SUCURSAL_URL)
+      .then((res: any) => {
+        if (res.respuestaCodigo == 0) {
+          if (res.data) {
+            console.log("*******");
+            console.log(res.data);
+            opciones.push({ label: "SELECCIONAR", value: 0 });
+            res.data.forEach(data => {
+              opciones.push(
+                { label: data.descripcion.toUpperCase(), value: data.id }
+              );
+            });
+          }
+        }
+      });
+  }
 
   getTipoSucursalSelect(opciones: any[]) {
     opciones.splice(0, opciones.length);

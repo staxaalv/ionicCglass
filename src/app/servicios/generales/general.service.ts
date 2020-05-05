@@ -47,6 +47,10 @@ import { CibEquivalenciasUnidadesMedidasComponent } from 'src/app/componentes/pa
 import { CibMarcasComponent } from 'src/app/componentes/paginas/cib/man/cib-marcas/cib-marcas.component';
 import { CibLineasComponent } from 'src/app/componentes/paginas/cib/man/cib-lineas/cib-lineas.component';
 import { CibSubLineasComponent } from 'src/app/componentes/paginas/cib/man/cib-sub-lineas/cib-sub-lineas.component';
+import { CibProductosComponent } from 'src/app/componentes/paginas/cib/man/cib-productos/cib-productos.component';
+import { CibProductosImpuestosComponent } from 'src/app/componentes/paginas/cib/man/cib-productos-impuestos/cib-productos-impuestos.component';
+import { CibProductosAdicionalesComponent } from 'src/app/componentes/paginas/cib/man/cib-productos-adicionales/cib-productos-adicionales.component';
+import { CibSucursalesInventarioComponent } from 'src/app/componentes/paginas/cib/man/cib-sucursales-inventario/cib-sucursales-inventario.component';
 const entryComponents = {
   index: IndexComponent,
   paises: PaisesComponent,
@@ -89,7 +93,11 @@ const entryComponents = {
   cibEquivUnidMed: CibEquivalenciasUnidadesMedidasComponent,
   cibMarcas: CibMarcasComponent,
   cibLineas: CibLineasComponent,
-  cibSubLineas: CibSubLineasComponent
+  cibSubLineas: CibSubLineasComponent,
+  cibProductos: CibProductosComponent,
+  cibProductosImpuestos: CibProductosImpuestosComponent,
+  cibProductosAdicionales: CibProductosAdicionalesComponent,
+  cibInvetarioSucursales: CibSucursalesInventarioComponent
 };
 
 @Injectable({

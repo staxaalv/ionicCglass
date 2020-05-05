@@ -341,16 +341,48 @@ export class CibService {
       .then((res: any) => {
         if (res.respuestaCodigo == 0) {
           if (res.data) {
-            console.log(res.data)
             opciones.push({ label: "SELECCIONAR", value: 0 });
-            //opciones.push({ label: "NULL", value: {cibLineaAgeLicencCodigo: null,
-            //                                       cibLineaCodigo: null,
-            //                                       codigo: null} });
             res.data.forEach(data => {
-              console.log();
               opciones.push(
                 //{ label: data.descripcion.toUpperCase(), value: data.id.codigo }
-                { label: data.descripcion.toUpperCase(), value: data.id }
+                { label: data.descripcion.toUpperCase(), value: data.id}
+              );
+            });
+          }
+        }
+      });
+  }
+
+  getMarcaSelect(opciones: any[]) {
+    opciones.splice(0, opciones.length);
+    this.getDetalle(this.MARCA_URL)
+      .then((res: any) => {
+        if (res.respuestaCodigo == 0) {
+          if (res.data) {
+            opciones.push({ label: "SELECCIONAR", value: 0 });
+            opciones.push({ label: "Nulo", value: {'codigo':null,'ageLicencCodigo':null} });
+            res.data.forEach(data => {
+              opciones.push(
+                //{ label: data.descripcion.toUpperCase(), value: data.id.codigo }
+                { label: data.decripcion.toUpperCase(), value: data.id }
+              );
+            });
+          }
+        }
+      });
+  }
+  getProductoSelect(opciones: any[]) {
+    opciones.splice(0, opciones.length);
+    this.getDetalle(this.PRODUCTO_URL)
+      .then((res: any) => {
+        if (res.respuestaCodigo == 0) {
+          if (res.data) {
+            opciones.push({ label: "SELECCIONAR", value: 0 });
+            //opciones.push({ label: "Nulo", value: {'codigo':null,'ageLicencCodigo':null} });
+            res.data.forEach(data => {
+              opciones.push(
+                //{ label: data.descripcion.toUpperCase(), value: data.id.codigo }
+                { label: data.decripcion.toUpperCase(), value: data.id }
               );
             });
           }
