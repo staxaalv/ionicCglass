@@ -46,7 +46,7 @@ export class AutenticacionService {
         body.toString(),
         {
           headers: new HttpHeaders()//.set('Content-Type', 'multipart/form-data')
-            .set('Authorization', 'Basic ' + btoa('55rhLY2c6QRNqS2pkZmR2DRCLXwa' + ':' + 'hppVSreOczccmvt9qn8EMPxfwjca'))
+            .set('Authorization', 'Basic ' + btoa('v9FxiYyio5MUt6eScSKSa8DgoREa' + ':' + '24pVfRsZh5MXBbz8ssrhEOSpdJsa'))
             .set('Content-Type', 'application/x-www-form-urlencoded')
             .set('Access-Control-Allow-Origin', '*')
         })
@@ -103,6 +103,7 @@ export class AutenticacionService {
           let data = { respuestaCodigo: -1, error: e };
           resolve(data);
         });
+
     });
   }
 

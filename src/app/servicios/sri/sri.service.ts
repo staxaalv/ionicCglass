@@ -444,7 +444,7 @@ export class SriService {
             opciones.push({ label: "SELECCIONAR", value: 0 });
             res.data.forEach(data => {
               opciones.push(
-                { label: data.descripcion.toUpperCase(), value: data.codigo }
+                { label: data.descripcion.toUpperCase(), value: data.id.codigo }
               );
             });
           }

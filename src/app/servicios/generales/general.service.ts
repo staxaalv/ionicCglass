@@ -42,7 +42,11 @@ import { SriConfiguracionComponent } from 'src/app/componentes/paginas/sri/man/s
 import { SriSecuenciaPrimariaComponent } from 'src/app/componentes/paginas/sri/man/sri-secuencia-primaria/sri-secuencia-primaria.component';
 import { CibUnidadesMedidasComponent } from 'src/app/componentes/paginas/cib/man/cib-unidades-medidas/cib-unidades-medidas.component';
 import { CibSecuenciasPrimariasComponent } from 'src/app/componentes/paginas/cib/man/cib-secuencias-primarias/cib-secuencias-primarias.component';
-
+import { CibSecuenciasLicenciatariosComponent } from 'src/app/componentes/paginas/cib/man/cib-secuencias-licenciatarios/cib-secuencias-licenciatarios.component';
+import { CibEquivalenciasUnidadesMedidasComponent } from 'src/app/componentes/paginas/cib/man/cib-equivalencias-unidades-medidas/cib-equivalencias-unidades-medidas.component';
+import { CibMarcasComponent } from 'src/app/componentes/paginas/cib/man/cib-marcas/cib-marcas.component';
+import { CibLineasComponent } from 'src/app/componentes/paginas/cib/man/cib-lineas/cib-lineas.component';
+import { CibSubLineasComponent } from 'src/app/componentes/paginas/cib/man/cib-sub-lineas/cib-sub-lineas.component';
 const entryComponents = {
   index: IndexComponent,
   paises: PaisesComponent,
@@ -80,7 +84,12 @@ const entryComponents = {
   sriConfiguracion: SriConfiguracionComponent,
   sriSecuenciaPrimaria: SriSecuenciaPrimariaComponent,
   cibUnidadesMedidas: CibUnidadesMedidasComponent,
-  cibSecuenciaPrimaria: CibSecuenciasPrimariasComponent
+  cibSecuenciaPrimaria: CibSecuenciasPrimariasComponent,
+  cibLicenciatariosAplicaSecu: CibSecuenciasLicenciatariosComponent,
+  cibEquivUnidMed: CibEquivalenciasUnidadesMedidasComponent,
+  cibMarcas: CibMarcasComponent,
+  cibLineas: CibLineasComponent,
+  cibSubLineas: CibSubLineasComponent
 };
 
 @Injectable({

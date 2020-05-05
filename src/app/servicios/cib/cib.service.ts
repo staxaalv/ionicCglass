@@ -299,4 +299,64 @@ export class CibService {
       });
   }
 
+  getUnidadMedidaSelect(opciones: any[]) {
+    opciones.splice(0, opciones.length);
+    this.getDetalle(this.UNIDADES_MEDIDAS_URL)
+      .then((res: any) => {
+        if (res.respuestaCodigo == 0) {
+          if (res.data) {
+            opciones.push({ label: "SELECCIONAR", value: 0 });
+            res.data.forEach(data => {
+              opciones.push(
+                //{ label: data.descripcion.toUpperCase(), value: data.id.codigo }
+                { label: data.descripcion.toUpperCase(), value: data.id }
+              );
+            });
+          }
+        }
+      });
+  }
+
+  getLineasSelect(opciones: any[]) {
+    opciones.splice(0, opciones.length);
+    this.getDetalle(this.LINEA_URL)
+      .then((res: any) => {
+        if (res.respuestaCodigo == 0) {
+          if (res.data) {
+            opciones.push({ label: "SELECCIONAR", value: 0 });
+            res.data.forEach(data => {
+              opciones.push(
+                //{ label: data.descripcion.toUpperCase(), value: data.id.codigo }
+                { label: data.decripcion.toUpperCase(), value: data.id }
+              );
+            });
+          }
+        }
+      });
+  }
+
+  getSubLineasSelect(opciones: any[]) {
+    opciones.splice(0, opciones.length);
+    this.getDetalle(this.SUBLINEA_URL)
+      .then((res: any) => {
+        if (res.respuestaCodigo == 0) {
+          if (res.data) {
+            console.log(res.data)
+            opciones.push({ label: "SELECCIONAR", value: 0 });
+            //opciones.push({ label: "NULL", value: {cibLineaAgeLicencCodigo: null,
+            //                                       cibLineaCodigo: null,
+            //                                       codigo: null} });
+            res.data.forEach(data => {
+              console.log();
+              opciones.push(
+                //{ label: data.descripcion.toUpperCase(), value: data.id.codigo }
+                { label: data.descripcion.toUpperCase(), value: data.id }
+              );
+            });
+          }
+        }
+      });
+  }
+
+
 }

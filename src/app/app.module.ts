@@ -77,6 +77,11 @@ import { SriConfiguracionComponent } from './componentes/paginas/sri/man/sri-con
 import { SriSecuenciaPrimariaComponent } from './componentes/paginas/sri/man/sri-secuencia-primaria/sri-secuencia-primaria.component';
 import { CibUnidadesMedidasComponent } from './componentes/paginas/cib/man/cib-unidades-medidas/cib-unidades-medidas.component';
 import { CibSecuenciasPrimariasComponent } from './componentes/paginas/cib/man/cib-secuencias-primarias/cib-secuencias-primarias.component';
+import { CibSecuenciasLicenciatariosComponent } from './componentes/paginas/cib/man/cib-secuencias-licenciatarios/cib-secuencias-licenciatarios.component';
+import { CibEquivalenciasUnidadesMedidasComponent } from './componentes/paginas/cib/man/cib-equivalencias-unidades-medidas/cib-equivalencias-unidades-medidas.component';
+import { CibMarcasComponent } from './componentes/paginas/cib/man/cib-marcas/cib-marcas.component';
+import { CibLineasComponent } from './componentes/paginas/cib/man/cib-lineas/cib-lineas.component';
+import { CibSubLineasComponent } from './componentes/paginas/cib/man/cib-sub-lineas/cib-sub-lineas.component';
 
 
 @NgModule({
@@ -131,7 +136,12 @@ import { CibSecuenciasPrimariasComponent } from './componentes/paginas/cib/man/c
     SriConfiguracionComponent,
     SriSecuenciaPrimariaComponent,
     CibUnidadesMedidasComponent,
-    CibSecuenciasPrimariasComponent
+    CibSecuenciasPrimariasComponent,
+    CibSecuenciasLicenciatariosComponent,
+    CibEquivalenciasUnidadesMedidasComponent,
+    CibMarcasComponent,
+    CibLineasComponent,
+    CibSubLineasComponent
   ],
   imports: [
     BrowserModule,

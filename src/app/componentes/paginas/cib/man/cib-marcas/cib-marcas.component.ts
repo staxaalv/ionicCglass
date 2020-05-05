@@ -3,19 +3,18 @@ import { ACComponent } from 'src/app/componentes/paginas/cib/man/ACComponent';
 import { CibService } from 'src/app/servicios/cib/cib.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AgeService } from 'src/app/servicios/age/age.service';
-
 @Component({
-  selector: 'app-cib-unidades-medidas',
-  templateUrl: './cib-unidades-medidas.component.html',
-  styleUrls: ['./cib-unidades-medidas.component.css']
+  selector: 'app-cib-marcas',
+  templateUrl: './cib-marcas.component.html',
+  styleUrls: ['./cib-marcas.component.css']
 })
-export class CibUnidadesMedidasComponent extends ACComponent {
+export class CibMarcasComponent extends ACComponent {
 
   constructor(protected ageService: AgeService,protected cibService: CibService, protected sanitizer: DomSanitizer) {
-    super(cibService, sanitizer, "Lista Unidad Medida", cibService.UNIDADES_MEDIDAS_URL, false, cibService.subjectOpcionesUnidadesMedidas);
-  }
+    super(cibService, sanitizer, "Lista Marca", cibService.MARCA_URL, false, cibService.subjectOpcionesMarca);
+   }
 
-  cargarColumnas() {
+   cargarColumnas() {
     this.cols = [
       {
         field: 'id',
@@ -26,16 +25,10 @@ export class CibUnidadesMedidasComponent extends ACComponent {
         noinsertable: true
       },
       {
-        field: 'descripcion',
-        //ield: 'decripcion',
+        //field: 'descripcion',
+        field: 'decripcion',
         header: 'Descripción',
         width: this.sanitizer.bypassSecurityTrustStyle('width:45%'),
-        required: true
-      },
-      {
-        field: 'simbolo',
-        header: 'Símbolo',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:30%'),
         required: true
       },
       {
@@ -59,7 +52,6 @@ export class CibUnidadesMedidasComponent extends ACComponent {
         'codigo': 0,
         'ageLicencCodigo': this.ageService.authService.codigoLicenciatario
       },
-      'simbolo': '',
       'estado': 'A',
       'observacionEstado': '',
       'fechaIngreso': Date.now(),
@@ -74,6 +66,4 @@ export class CibUnidadesMedidasComponent extends ACComponent {
       detallesNuevos[index].nuevo = false;
     }
   }
-
-
 }
