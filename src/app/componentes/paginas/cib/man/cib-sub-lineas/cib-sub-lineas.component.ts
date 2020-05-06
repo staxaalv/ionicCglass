@@ -72,7 +72,7 @@ export class CibSubLineasComponent extends ACComponent {
       },
       {
         field: 'subLineaPadreField',
-        header: 'Sub-Línea Padre',
+        header: 'Sublínea Padre',
         width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesSubLineas,
         async: true,
@@ -81,7 +81,7 @@ export class CibSubLineasComponent extends ACComponent {
       {
         field: 'descripcion',
         header: 'Descripción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:145px'),
         required: true
       },
       {
@@ -94,7 +94,7 @@ export class CibSubLineasComponent extends ACComponent {
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:145px')
       }
     ];
   }

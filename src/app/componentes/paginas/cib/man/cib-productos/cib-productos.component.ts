@@ -95,7 +95,7 @@ export class CibProductosComponent extends ACComponent {
       {
         field: 'unidadMedidaId',
         header: 'Unidad de Medida',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesUnidadMedida,
         async: true,
         required: true
@@ -103,14 +103,14 @@ export class CibProductosComponent extends ACComponent {
       {
         field: 'marcaId',
         header: 'Marca',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesMarca,
         async: true
       },
       {
         field: 'subLineaId',
         header: 'Sublinea',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesSubLineas,
         async: true,
         required: true
@@ -118,15 +118,15 @@ export class CibProductosComponent extends ACComponent {
       {
         field: 'sriTipBsCodigo',
         header: 'Tipo Bien Servicio',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesTipoBienServicio,
         async: true,
         required:true
       },
       {
         field: 'retFtePorcentajeId',
-        header: 'Porcentaje Retención Fuente',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        header: 'Porcentaje Retención',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesRetencionFtePorcentaje,
         async: true,
         required: true
@@ -134,68 +134,26 @@ export class CibProductosComponent extends ACComponent {
       {
         field: 'descripcion',
         header: 'Descripción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:145px'),
         required: true
       },
       {
-        field: 'afectaInventario',
-        header: 'Afecta Inventario',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
-        opciones: [{ label: 'Si', value: 'S' },
-        { label: 'No', value: 'N' },{ label: 'Nulo', value: null }]
+        field: 'tipoProducto',
+        header: 'Tipo Producto',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
+        opciones: [{ label: 'Insumo Simple', value: 'IS' },
+        { label: 'Insumo Compuesto', value: 'IC' },
+        { label: 'Producto Simple', value: 'PS' },
+        { label: 'Producto Compuesto', value: 'PC' }]
       },
       {
         field: 'codigoExterno',
         header: 'Código Externo',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px')
-      },
-      {
-        field: 'controlaExistencia',
-        header: 'Controla Existencia',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
-        opciones: [{ label: 'Si', value: 'S' },
-        { label: 'No', value: 'N' }]
-      },
-      {
-        field: 'disponibleVenta',
-        header: 'Disponible Venta',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
-        opciones: [{ label: 'Si', value: 'S' },
-        { label: 'No', value: 'N' },{ label: 'Nulo', value: null }]
-      },
-      {
-        field: 'imagenProducto',
-        header: 'Imagen',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
-        tipo: 'image'
-      },
-      {
-        field: 'porcentajeDesperdicio',
-        header: 'Porcentaje Desperdicio %',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
-        tipo: 'number'
-      },
-      {
-        field: 'porcentajeDesperdicioDeCada',
-        header: 'De Cada (PD)',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
-        tipo: 'number'
-      },
-      {
-        field: 'porcentajeUtilidad',
-        header: 'Porcentaje Utilidad %',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
-        tipo: 'number'
-      },
-      {
-        field: 'porcentajeUtilidadDeCada',
-        header: 'De Cada (PU)',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
-        tipo: 'number'
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px')
       },
       {
         field: 'precio',
-        header: 'precio',
+        header: 'Precio',
         width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
         tipo: 'number'
       },
@@ -203,6 +161,58 @@ export class CibProductosComponent extends ACComponent {
         field: 'serie',
         header: 'Serie',
         width: this.sanitizer.bypassSecurityTrustStyle('width:85px')
+      },
+      {
+        field: 'afectaInventario',
+        header: 'Afecta Inventario',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
+        opciones: [{ label: 'Si', value: 'S' },
+        { label: 'No', value: 'N' },{ label: 'Nulo', value: null }]
+      },
+
+      {
+        field: 'controlaExistencia',
+        header: 'Controla Existencia',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
+        opciones: [{ label: 'Si', value: 'S' },
+        { label: 'No', value: 'N' }]
+      },
+      {
+        field: 'disponibleVenta',
+        header: 'Disponible Venta',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
+        opciones: [{ label: 'Si', value: 'S' },
+        { label: 'No', value: 'N' },{ label: 'Nulo', value: null }]
+      },
+      {
+        field: 'imagenProducto',
+        header: 'Imagen',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
+        tipo: 'image'
+      },
+      {
+        field: 'porcentajeDesperdicio',
+        header: 'Porcentaje Desperdicio %',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        tipo: 'number'
+      },
+      {
+        field: 'porcentajeDesperdicioDeCada',
+        header: 'De Cada (PD)',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        tipo: 'number'
+      },
+      {
+        field: 'porcentajeUtilidad',
+        header: 'Porcentaje Utilidad %',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        tipo: 'number'
+      },
+      {
+        field: 'porcentajeUtilidadDeCada',
+        header: 'De Cada (PU)',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        tipo: 'number'
       },
       {
         field: 'tieneAdicionales',
@@ -214,18 +224,9 @@ export class CibProductosComponent extends ACComponent {
       {
         field: 'tieneReceta',
         header: 'Tiene Receta',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: [{ label: 'Si', value: 'S' },
         { label: 'No', value: 'N' },{ label: 'Nulo', value: null }]
-      },
-      {
-        field: 'tipoProducto',
-        header: 'Tipo Producto',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
-        opciones: [{ label: 'Insumo Simple', value: 'IS' },
-        { label: 'Insumo Compuesto', value: 'IC' },
-        { label: 'Producto Simple', value: 'PS' },
-        { label: 'Producto Compuesto', value: 'PC' }]
       },
 
       {
@@ -239,7 +240,7 @@ export class CibProductosComponent extends ACComponent {
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:110px')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:145px')
       }
     ];
   }

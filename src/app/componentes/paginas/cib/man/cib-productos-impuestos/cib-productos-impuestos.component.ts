@@ -55,7 +55,7 @@ export class CibProductosImpuestosComponent extends ACComponent {
       {
         field: 'productoId',
         header: 'Producto',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: this.opcionesProductos,
         async: true,
         required: true
@@ -63,7 +63,7 @@ export class CibProductosImpuestosComponent extends ACComponent {
       {
         field: 'impuestoTarifaId',
         header: 'Tarifa Impuesto',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: this.opcionesImpuestoTarifa,
         async: true,
         required: true
@@ -71,14 +71,14 @@ export class CibProductosImpuestosComponent extends ACComponent {
       {
         field: 'estado',
         header: 'Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:30%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: [{ label: 'Activo', value: 'A' },
         { label: 'Inactivo', value: 'I' }]
       },
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:45%')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:145px')
       }
     ];
   }

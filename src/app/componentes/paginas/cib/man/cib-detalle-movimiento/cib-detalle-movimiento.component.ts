@@ -66,14 +66,14 @@ export class CibDetalleMovimientoComponent extends ACComponent {
         field: 'id',
         field2: 'codigo',
         header: 'Código',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:55px'),
         tipo: 'number',
         noinsertable: true
       },
       {
         field: 'cabeceraId',
         header: 'Cabecera Movimiento',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesCabeceraMovimiento,
         async: true,
         required: true
@@ -81,7 +81,7 @@ export class CibDetalleMovimientoComponent extends ACComponent {
       {
         field: 'UnidadMedidaId',
         header: 'Unidad Medida',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesUnidadMedida,
         async: true,
         required: true
@@ -89,7 +89,7 @@ export class CibDetalleMovimientoComponent extends ACComponent {
       {
         field: 'productoId',
         header: 'Producto',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesProductos,
         async: true,
         required: true
@@ -118,7 +118,7 @@ export class CibDetalleMovimientoComponent extends ACComponent {
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:125px')
       }
     ];
   }

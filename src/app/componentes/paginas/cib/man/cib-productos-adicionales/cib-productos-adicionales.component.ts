@@ -50,7 +50,7 @@ export class CibProductosAdicionalesComponent extends ACComponent {
       {
         field: 'productoId1',
         header: 'Producto',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: this.opcionesProductos,
         async: true,
         required: true
@@ -58,7 +58,7 @@ export class CibProductosAdicionalesComponent extends ACComponent {
       {
         field: 'productoId2',
         header: 'Producto Estar',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: this.opcionesProductos,
         async: true,
         required: true
@@ -66,14 +66,14 @@ export class CibProductosAdicionalesComponent extends ACComponent {
       {
         field: 'estado',
         header: 'Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:30%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: [{ label: 'Activo', value: 'A' },
         { label: 'Inactivo', value: 'I' }]
       },
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:45%')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:145px')
       }
     ];
   }

@@ -20,27 +20,27 @@ export class CibLineasComponent extends ACComponent {
         field: 'id',
         field2: 'codigo',
         header: 'Código',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:10%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number',
         noinsertable: true
       },
       {
         field: 'descripcion',
         header: 'Descripción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:45%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:135px'),
         required: true
       },
       {
         field: 'estado',
         header: 'Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:30%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: [{ label: 'Activo', value: 'A' },
         { label: 'Inactivo', value: 'I' }]
       },
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:45%')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:135px')
       }
     ];
   }

@@ -65,7 +65,7 @@ export class CibDetalleRecetasComponent extends ACComponent {
         field: 'id',
         field2: 'codigo',
         header: 'Código',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:55px'),
         tipo: 'number',
         noinsertable: true
       },
@@ -96,14 +96,14 @@ export class CibDetalleRecetasComponent extends ACComponent {
       {
         field: 'cantidad',
         header: 'Cantidad',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number',
         required: true
       },
       {
         field: 'descripcionPrepracion',
         header: 'Descripción Preparación',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:125px'),
         required:true
       },
       {
@@ -123,7 +123,7 @@ export class CibDetalleRecetasComponent extends ACComponent {
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:125px')
       }
     ];
   }

@@ -53,7 +53,7 @@ export class CibCabeceraRecetasComponent extends ACComponent {
       {
         field: 'productoId',
         header: 'Producto',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
         opciones: this.opcionesProductos,
         async: true,
         required: true
@@ -61,7 +61,7 @@ export class CibCabeceraRecetasComponent extends ACComponent {
       {
         field: 'descripcion',
         header: 'Descripción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:125px'),
         required: true
       },
       {
@@ -74,7 +74,7 @@ export class CibCabeceraRecetasComponent extends ACComponent {
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:125px')
       }
     ];
   }

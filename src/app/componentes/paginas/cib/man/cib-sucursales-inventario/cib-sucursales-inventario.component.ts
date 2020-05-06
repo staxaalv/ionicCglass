@@ -54,7 +54,7 @@ export class CibSucursalesInventarioComponent extends ACComponent {
       {
         field: 'productoId',
         header: 'Producto',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: this.opcionesProductos,
         async: true,
         required: true
@@ -62,7 +62,7 @@ export class CibSucursalesInventarioComponent extends ACComponent {
       {
         field: 'sucursalesId',
         header: 'Sucursal',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: this.opcionesSucursal,
         async: true,
         required: true
@@ -70,32 +70,32 @@ export class CibSucursalesInventarioComponent extends ACComponent {
       {
         field: 'existencia',
         header: 'Existencia',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number'
       },
       {
         field: 'existenciaMaxima',
         header: 'Existencia Máxima',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number'
       },
       {
         field: 'existenciaMinima',
         header: 'Existencia Mínima',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number'
       },
       {
         field: 'estado',
         header: 'Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:30%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: [{ label: 'Activo', value: 'A' },
         { label: 'Inactivo', value: 'I' }]
       },
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:45%')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:135px')
       }
     ];
   }

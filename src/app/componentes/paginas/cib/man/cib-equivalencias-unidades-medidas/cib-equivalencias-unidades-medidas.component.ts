@@ -48,8 +48,8 @@ export class CibEquivalenciasUnidadesMedidasComponent extends ACComponent {
         //field: 'id',
         //field2: 'cibUniMeCodigo',
         field: 'UnidadMedidaId1',
-        header: 'Unidad de Medida',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:10%'),
+        header: 'Unidad Medida',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: this.opcionesUnidadMedida,
         async: true,
         required: true
@@ -59,7 +59,7 @@ export class CibEquivalenciasUnidadesMedidasComponent extends ACComponent {
         //field2: 'cibUniMeCodigoSerA',
         field: 'UnidadMedidaId2',
         header: 'Unidad Medida (SerA)',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:10%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: this.opcionesUnidadMedida,
         async: true,
         required: true
@@ -67,21 +67,21 @@ export class CibEquivalenciasUnidadesMedidasComponent extends ACComponent {
       {
         field: 'valor',
         header: 'Valor',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:30%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number',
         required: true
       },
       {
         field: 'estado',
         header: 'Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:30%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         opciones: [{ label: 'Activo', value: 'A' },
         { label: 'Inactivo', value: 'I' }]
       },
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:45%')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:125px')
       }
     ];
   }

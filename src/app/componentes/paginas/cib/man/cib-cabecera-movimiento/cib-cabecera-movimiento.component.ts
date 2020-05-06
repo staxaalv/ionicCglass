@@ -47,14 +47,14 @@ export class CibCabeceraMovimientoComponent extends ACComponent  {
         field: 'id',
         field2: 'codigo',
         header: 'Código',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:55px'),
         tipo: 'number',
         noinsertable: true
       },
       {
         field: 'transaccionId',
         header: 'Transacción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:125px'),
         opciones: this.opcionesTransaccion,
         async: true,
         required: true
@@ -62,13 +62,13 @@ export class CibCabeceraMovimientoComponent extends ACComponent  {
       {
         field: 'descripcion',
         header: 'Descripción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:145px'),
         required: true
       },
       {
         field: 'fecha',
         header: 'Fecha',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         tipo: 'date',
         required: true
       },
@@ -82,7 +82,7 @@ export class CibCabeceraMovimientoComponent extends ACComponent  {
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:135px')
       }
     ];
   }
