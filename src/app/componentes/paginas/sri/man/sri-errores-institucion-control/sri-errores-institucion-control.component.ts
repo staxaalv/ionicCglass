@@ -18,49 +18,48 @@ export class SriErroresInstitucionControlComponent extends ACComponent {
     this.cols = [
       {
         field: 'codigo',
-        //field2: 'codigo',
         header: 'Código',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:10%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number',
         noinsertable: true
       },
       {
         field: 'descripcion',
         header: 'Descripción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:45%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:155px'),
         required: true
       },
       {
         field: 'posibleSolucion',
         header: 'Posible solución',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:25%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:155px'),
         required: true
       },
       {
         field: 'tiempoReenvio',
-        header: 'Tiempo de reenvío',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:10%'),
+        header: 'Tiempo reenvío',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:100px'),
         tipo: 'number',
         required: true
       },
       {
         field: 'tieneReenvio',
         header: 'Tiene reenvío',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:20%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:100px'),
         opciones: [{ label: 'Si', value: 'S' },
         { label: 'No', value: 'N' }]
       },
       {
         field: 'estado',
         header: 'Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:20%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:155px'),
         opciones: [{ label: 'Activo', value: 'A' },
         { label: 'Inactivo', value: 'I' }]
       },
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:25%')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:135px')
       }
     ];
   }

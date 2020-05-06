@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class SriRetencionFuenteComponent extends ACComponent {
 
   constructor(protected sriService: SriService, protected sanitizer: DomSanitizer) {
-    super(sriService, sanitizer, "Lista Retención en la Fuente", sriService.RETENCION_FUENTE_URL, false, sriService.subjectOpcionesSriRetencionFuente);
+    super(sriService, sanitizer, "Lista Retención Fuente", sriService.RETENCION_FUENTE_URL, false, sriService.subjectOpcionesSriRetencionFuente);
    }
 
    cargarColumnas() {
@@ -24,8 +24,8 @@ export class SriRetencionFuenteComponent extends ACComponent {
       },
       {
         field: 'codigoInstitucionControl',
-        header: 'Código Institución Control',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:10%'),
+        header: 'Código Inst. Contr.',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
         tipo: 'number',
         required: true
       },

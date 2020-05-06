@@ -27,7 +27,7 @@ export class SriImpuestoTarifaComponent extends ACComponent {
         field: 'id',
         field2: 'codigo',
         header: 'Código',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number',
         noinsertable: true
       },
@@ -35,48 +35,34 @@ export class SriImpuestoTarifaComponent extends ACComponent {
         field: 'id',
         field2: 'sriImpuesCodigo',
         header: 'Impuesto',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:80px'),
         opciones: this.opcionesImpuestos,
         async: true,
         required: true
       },
       {
         field: 'codigoInstitucionControl',
-        header: 'Institución de Control',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        header: 'Código Inst. Contr.',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:80px'),
         tipo: 'number',
         required: true
       },
       {
         field: 'descripcion',
         header: 'Descripción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:145px'),
+        required: true
+      },
+      {
+        field: 'porcentaje',
+        header: 'Porcentaje %',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
+        tipo: 'number',
         required: true
       },
       {
         field: 'deCada',
         header: 'De cada',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
-        tipo: 'number',
-        required: true
-      },
-      {
-        field: 'fechaDesde',
-        header: 'Fecha Desde',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
-        tipo: 'date',
-        required: true
-      },
-      {
-        field: 'fechaHasta',
-        header: 'Fecha Hasta',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
-        tipo: 'date',
-        required: true
-      },
-      {
-        field: 'porcentaje',
-        header: '% Porcentaje',
         width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number',
         required: true
@@ -84,10 +70,25 @@ export class SriImpuestoTarifaComponent extends ACComponent {
       {
         field: 'valor',
         header: 'Valor',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number',
         required: true
       },
+      {
+        field: 'fechaDesde',
+        header: 'Fecha Desde',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
+        tipo: 'date',
+        required: true
+      },
+      {
+        field: 'fechaHasta',
+        header: 'Fecha Hasta',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
+        tipo: 'date',
+        required: true
+      },
+
       {
         field: 'estado',
         header: 'Estado',
@@ -98,7 +99,7 @@ export class SriImpuestoTarifaComponent extends ACComponent {
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:135px')
       }
     ];
   }

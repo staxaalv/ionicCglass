@@ -67,35 +67,35 @@ export class SriPtoEmisionTipoComprobanteComponent extends ACComponent {
         field: 'id',
         field2: 'sriTipCoCodigo',
         header: 'Tipo Comprobante',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:95px'),
         opciones: this.opcionesTipoComprobante,
         async: true,
         required: true
       },
       {
         field: 'secuenciaCiclica',
-        header: 'Secuencia cíclica',
+        header: 'Cíclica',
         width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
         opciones: [{ label: 'Si', value: 'S' },
         { label: 'No', value: 'N' }]
       },
       {
         field: 'secuenciaIncremento',
-        header: 'Incremento Secuencia',
+        header: 'Incremento',
         width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
         tipo: 'number',
         required: true
       },
       {
         field: 'secuenciaValorActual',
-        header: 'Valor Actual Secuencia',
+        header: 'Valor Actual',
         width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
         tipo: 'number',
-        required: true
+        noinsertable: true
       },
       {
         field: 'secuenciaValorInicio',
-        header: 'Valor Inicio Secuencia',
+        header: 'Valor Inicio',
         width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
         tipo: 'number',
         required: true

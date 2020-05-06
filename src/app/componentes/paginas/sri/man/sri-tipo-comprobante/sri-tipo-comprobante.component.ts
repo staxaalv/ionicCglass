@@ -24,8 +24,8 @@ export class SriTipoComprobanteComponent extends ACComponent {
       },
       {
         field: 'codigoInstitucionControl',
-        header: 'Código Institución Control',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:10%'),
+        header: 'Código Inst. Contr.',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:15%'),
         tipo: 'number',
         required: true
       },

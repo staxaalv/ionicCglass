@@ -17,37 +17,35 @@ export class SriImpuestoComponent extends ACComponent {
     this.cols = [
       {
         field: 'codigo',
-        //field2: 'codigo',
         header: 'Código',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:10%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
         tipo: 'number',
         noinsertable: true
       },
       {
         field: 'codigoInstitucionControl',
-        //field2: 'codigo',
-        header: 'Código de Institución de Control',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:10%'),
+        header: ' Código Inst. Contr.',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
         tipo: 'number',
         required: true
       },
       {
         field: 'descripcion',
         header: 'Descripción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:45%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
         required: true
       },
       {
         field: 'estado',
         header: 'Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:20%'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
         opciones: [{ label: 'Activo', value: 'A' },
         { label: 'Inactivo', value: 'I' }]
       },
       {
         field: 'observacionEstado',
         header: 'Observación Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:25%')
+        width: this.sanitizer.bypassSecurityTrustStyle('width:115px')
       }
     ];
   }

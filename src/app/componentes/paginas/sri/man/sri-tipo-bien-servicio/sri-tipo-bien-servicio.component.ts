@@ -31,15 +31,15 @@ export class SriTipoBienServicioComponent extends ACComponent {
       },
       {
         field: 'usaImpuesto',
-        header: 'USA Impuesto',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:20%'),
+        header: 'Usa Impuesto',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:25%'),
         opciones: [{ label: 'Si', value: 'S' },
         { label: 'No', value: 'N' }]
       },
       {
         field: 'usaRenta',
-        header: 'USA Renta',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:20%'),
+        header: 'Usa Renta',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:25%'),
         opciones: [{ label: 'Si', value: 'S' },
         { label: 'No', value: 'N' }]
       },

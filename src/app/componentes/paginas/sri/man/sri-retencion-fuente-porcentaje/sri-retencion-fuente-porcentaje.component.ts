@@ -26,71 +26,71 @@ export class SriRetencionFuentePorcentajeComponent extends ACComponent {
         field: 'id',
         field2: 'codigo',
         header: 'Código',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
         tipo: 'number',
         noinsertable: true
       },
       {
         field: 'id',
         field2: 'sriRetFuCodigo',
-        header: 'Código Retención Fuente',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        header: 'Retención',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
         opciones: this.opcionesRetencion,
         async: true,
         required: true
       },
       {
         field: 'codigoInstitucionControl',
-        header: 'Código Institución Control',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        header: 'Código Inst. Contr.',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
         tipo: 'number',
         required: true
       },
       {
         field: 'descripcion',
         header: 'Descripción',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:145px'),
+        required: true
+      },
+      {
+        field: 'porcentaje',
+        header: 'Porcentaje %',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
+        tipo: 'number',
         required: true
       },
       {
         field: 'deCada',
         header: 'De cada',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
-        tipo: 'number',
-        required: true
-      },
-      {
-        field: 'fechaDesde',
-        header: 'Fecha desde',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
-        tipo: 'date',
-        required: true
-      },
-      {
-        field: 'fechaHasta',
-        header: 'Fecha Hasta',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:115px'),
-        tipo: 'date',
-        required: true
-      },
-      {
-        field: 'porcentaje',
-        header: '% Porcentaje',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:75px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
         tipo: 'number',
         required: true
       },
       {
         field: 'valor',
         header: 'Valor',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
         tipo: 'number',
+        required: true
+      },
+      {
+        field: 'fechaDesde',
+        header: 'Fecha desde',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
+        tipo: 'date',
+        required: true
+      },
+      {
+        field: 'fechaHasta',
+        header: 'Fecha Hasta',
+        width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
+        tipo: 'date',
         required: true
       },
       {
         field: 'estado',
         header: 'Estado',
-        width: this.sanitizer.bypassSecurityTrustStyle('width:80px'),
+        width: this.sanitizer.bypassSecurityTrustStyle('width:85px'),
         opciones: [{ label: 'Activo', value: 'A' },
         { label: 'Inactivo', value: 'I' }]
       },
