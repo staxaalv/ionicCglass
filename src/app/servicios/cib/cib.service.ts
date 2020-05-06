@@ -327,7 +327,7 @@ export class CibService {
             res.data.forEach(data => {
               opciones.push(
                 //{ label: data.descripcion.toUpperCase(), value: data.id.codigo }
-                { label: data.decripcion.toUpperCase(), value: data.id }
+                { label: data.descripcion.toUpperCase(), value: data.id }
               );
             });
           }
@@ -364,7 +364,7 @@ export class CibService {
             res.data.forEach(data => {
               opciones.push(
                 //{ label: data.descripcion.toUpperCase(), value: data.id.codigo }
-                { label: data.decripcion.toUpperCase(), value: data.id }
+                { label: data.descripcion.toUpperCase(), value: data.id }
               );
             });
           }
@@ -382,7 +382,41 @@ export class CibService {
             res.data.forEach(data => {
               opciones.push(
                 //{ label: data.descripcion.toUpperCase(), value: data.id.codigo }
-                { label: data.decripcion.toUpperCase(), value: data.id }
+                { label: data.descripcion.toUpperCase(), value: data.id }
+              );
+            });
+          }
+        }
+      });
+  }
+
+  getCabeceraMovimientoSelect(opciones: any[]) {
+    opciones.splice(0, opciones.length);
+    this.getDetalle(this.CABECERA_MOVIMIENTO_URL)
+      .then((res: any) => {
+        if (res.respuestaCodigo == 0) {
+          if (res.data) {
+            opciones.push({ label: "SELECCIONAR", value: 0 });
+            res.data.forEach(data => {
+              opciones.push(
+                { label: data.descripcion.toUpperCase(), value: data.id}
+              );
+            });
+          }
+        }
+      });
+  }
+  getCabeceraRecetaSelect(opciones: any[]) {
+    opciones.splice(0, opciones.length);
+    this.getDetalle(this.CABECERA_RECETA_URL)
+      .then((res: any) => {
+        if (res.respuestaCodigo == 0) {
+          if (res.data) {
+            opciones.push({ label: "SELECCIONAR", value: 0 });
+            res.data.forEach(data => {
+              opciones.push(
+                //{ label: data.descripcion.toUpperCase(), value: data.id}
+                { label: data.descripcion.toUpperCase(), value: data.id}
               );
             });
           }

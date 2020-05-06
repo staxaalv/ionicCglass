@@ -51,6 +51,10 @@ import { CibProductosComponent } from 'src/app/componentes/paginas/cib/man/cib-p
 import { CibProductosImpuestosComponent } from 'src/app/componentes/paginas/cib/man/cib-productos-impuestos/cib-productos-impuestos.component';
 import { CibProductosAdicionalesComponent } from 'src/app/componentes/paginas/cib/man/cib-productos-adicionales/cib-productos-adicionales.component';
 import { CibSucursalesInventarioComponent } from 'src/app/componentes/paginas/cib/man/cib-sucursales-inventario/cib-sucursales-inventario.component';
+import { CibCabeceraMovimientoComponent } from 'src/app/componentes/paginas/cib/man/cib-cabecera-movimiento/cib-cabecera-movimiento.component';
+import { CibDetalleMovimientoComponent } from 'src/app/componentes/paginas/cib/man/cib-detalle-movimiento/cib-detalle-movimiento.component';
+import { CibCabeceraRecetasComponent } from 'src/app/componentes/paginas/cib/man/cib-cabecera-recetas/cib-cabecera-recetas.component';
+import { CibDetalleRecetasComponent } from 'src/app/componentes/paginas/cib/man/cib-detalle-recetas/cib-detalle-recetas.component';
 const entryComponents = {
   index: IndexComponent,
   paises: PaisesComponent,
@@ -97,7 +101,11 @@ const entryComponents = {
   cibProductos: CibProductosComponent,
   cibProductosImpuestos: CibProductosImpuestosComponent,
   cibProductosAdicionales: CibProductosAdicionalesComponent,
-  cibInvetarioSucursales: CibSucursalesInventarioComponent
+  cibInvetarioSucursales: CibSucursalesInventarioComponent,
+  cibCabeceraMovimiento: CibCabeceraMovimientoComponent,
+  cibDetalleMovimiento: CibDetalleMovimientoComponent,
+  cibCabeceraRecetas: CibCabeceraRecetasComponent,
+  cibDetalleRecetas: CibDetalleRecetasComponent
 };
 
 @Injectable({

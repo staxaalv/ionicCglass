@@ -485,6 +485,24 @@ export class AgeService {
         }
       });
   }
+  getTransaccionIdSelect(opciones: any[]) {
+    opciones.splice(0, opciones.length);
+    this.getDetalle(this.TRANSACCION_URL)
+      .then((res: any) => {
+        if (res.respuestaCodigo == 0) {
+          if (res.data) {
+
+            opciones.push({ label: "SELECCIONAR", value: 0 });
+            res.data.forEach(data => {
+              opciones.push(
+                { label: data.codigoExterno + ' - ' + data.descripcion.toUpperCase(), value: data.id}
+              );
+            });
+            return opciones;
+          }
+        }
+      });
+  }
 
   getPerfilSelect(opciones: any[]) {
     opciones.splice(0, opciones.length);

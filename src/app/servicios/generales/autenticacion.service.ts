@@ -46,7 +46,7 @@ export class AutenticacionService {
         body.toString(),
         {
           headers: new HttpHeaders()//.set('Content-Type', 'multipart/form-data')
-            .set('Authorization', 'Basic ' + btoa('v9FxiYyio5MUt6eScSKSa8DgoREa' + ':' + '24pVfRsZh5MXBbz8ssrhEOSpdJsa'))
+            .set('Authorization', 'Basic ' + btoa('aYKMUGVUpyym89NLfDBABBZPx3Ya' + ':' + 'v5Xs3mmZTd4t8neAXLMGp6hquh0a'))
             .set('Content-Type', 'application/x-www-form-urlencoded')
             .set('Access-Control-Allow-Origin', '*')
         })

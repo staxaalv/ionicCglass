@@ -27,7 +27,6 @@ export class CibUnidadesMedidasComponent extends ACComponent {
       },
       {
         field: 'descripcion',
-        //ield: 'decripcion',
         header: 'Descripción',
         width: this.sanitizer.bypassSecurityTrustStyle('width:45%'),
         required: true
@@ -60,6 +59,7 @@ export class CibUnidadesMedidasComponent extends ACComponent {
         'ageLicencCodigo': this.ageService.authService.codigoLicenciatario
       },
       'simbolo': '',
+      'descripcion': '',
       'estado': 'A',
       'observacionEstado': '',
       'fechaIngreso': Date.now(),

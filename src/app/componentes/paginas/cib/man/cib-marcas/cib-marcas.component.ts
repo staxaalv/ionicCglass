@@ -25,8 +25,7 @@ export class CibMarcasComponent extends ACComponent {
         noinsertable: true
       },
       {
-        //field: 'descripcion',
-        field: 'decripcion',
+        field: 'descripcion',
         header: 'Descripción',
         width: this.sanitizer.bypassSecurityTrustStyle('width:45%'),
         required: true
@@ -52,6 +51,7 @@ export class CibMarcasComponent extends ACComponent {
         'codigo': 0,
         'ageLicencCodigo': this.ageService.authService.codigoLicenciatario
       },
+      'descripcion': '',
       'estado': 'A',
       'observacionEstado': '',
       'fechaIngreso': Date.now(),

@@ -50,7 +50,10 @@ import { CibProductosComponent } from './componentes/paginas/cib/man/cib-product
 import { CibProductosImpuestosComponent } from './componentes/paginas/cib/man/cib-productos-impuestos/cib-productos-impuestos.component';
 import { CibProductosAdicionalesComponent } from './componentes/paginas/cib/man/cib-productos-adicionales/cib-productos-adicionales.component';
 import { CibSucursalesInventarioComponent } from './componentes/paginas/cib/man/cib-sucursales-inventario/cib-sucursales-inventario.component';
-
+import { CibCabeceraMovimientoComponent } from './componentes/paginas/cib/man/cib-cabecera-movimiento/cib-cabecera-movimiento.component';
+import { CibDetalleMovimientoComponent } from './componentes/paginas/cib/man/cib-detalle-movimiento/cib-detalle-movimiento.component';
+import { CibCabeceraRecetasComponent } from './componentes/paginas/cib/man/cib-cabecera-recetas/cib-cabecera-recetas.component';
+import { CibDetalleRecetasComponent } from './componentes/paginas/cib/man/cib-detalle-recetas/cib-detalle-recetas.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
@@ -195,6 +198,18 @@ const routes: Routes = [
       },
       {
         path: 'cibInvetarioSucursales', component: CibSucursalesInventarioComponent
+      },
+      {
+        path: 'cibCabeceraMovimiento', component: CibCabeceraMovimientoComponent
+      },
+      {
+        path: 'cibDetalleMovimiento', component: CibDetalleMovimientoComponent
+      },
+      {
+        path: 'cibCabeceraRecetas', component: CibCabeceraRecetasComponent
+      },
+      {
+        path: 'cibDetalleRecetas', component: CibDetalleRecetasComponent
       }
     ]
   },

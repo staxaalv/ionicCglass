@@ -80,6 +80,12 @@ export class CibProductosAdicionalesComponent extends ACComponent {
 
   agregar() {
     this.detalle.unshift({
+      'id':{
+        'cibProducCodigo':0,
+        'cibProducAgeLicencCodigo':0,
+        'cibProducCodigoEstar':0,
+        'cibProducAAgeLicencCodigo':0
+      },
       'estado': 'A',
       'observacionEstado': '',
       'fechaIngreso': Date.now(),

@@ -132,8 +132,7 @@ export class CibProductosComponent extends ACComponent {
         required: true
       },
       {
-        //field: 'descripcion',
-        field: 'decripcion',
+        field: 'descripcion',
         header: 'Descripción',
         width: this.sanitizer.bypassSecurityTrustStyle('width:110px'),
         required: true
@@ -168,7 +167,7 @@ export class CibProductosComponent extends ACComponent {
         field: 'imagenProducto',
         header: 'Imagen',
         width: this.sanitizer.bypassSecurityTrustStyle('width:65px'),
-        tipo: 'blob'
+        tipo: 'image'
       },
       {
         field: 'porcentajeDesperdicio',
@@ -251,8 +250,7 @@ export class CibProductosComponent extends ACComponent {
         'codigo': 0,
         'ageLicencCodigo': this.ageService.authService.codigoLicenciatario
       },
-      //'descripcion':'',
-      'decripcion':'',
+      'descripcion': '',
       'controlaExistencia':'N',
       'tieneReceta': 'N',
       'tipoProducto':'IS',

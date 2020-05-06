@@ -85,6 +85,12 @@ export class CibProductosImpuestosComponent extends ACComponent {
 
   agregar() {
     this.detalle.unshift({
+      'id':{
+        'cibProducCodigo':0,
+        'cibProducAgeLicencCodigo':0,
+        'sriTarImCodigo':0,
+        'sriTarImSriImpuesCodigo':0
+      },
       'estado': 'A',
       'observacionEstado': '',
       'fechaIngreso': Date.now(),
