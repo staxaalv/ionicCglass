@@ -1,5 +1,7 @@
 # Cglass
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6ed5d5fa9f9348be8964ddfd86a3095a)](https://app.codacy.com/gh/staxaalv/ionicCglass?utm_source=github.com&utm_medium=referral&utm_content=staxaalv/ionicCglass&utm_campaign=Badge_Grade_Settings)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
 
 ## Development server
